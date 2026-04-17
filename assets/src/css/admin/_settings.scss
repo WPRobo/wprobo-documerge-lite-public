@@ -1,0 +1,692 @@
+/**
+ * WPRobo DocuMerge — Settings Page Styles
+ *
+ * Tabs, panels, field groups, sections, and all
+ * styles specific to the plugin settings interface.
+ *
+ * @package WPRobo_DocuMerge
+ * @since   1.0.0
+ */
+
+// ── Settings Wrapper ─────────────────────────────────────────────
+.wdm-settings-wrap {
+    background: $wdm-white;
+    border: 1px solid $wdm-border;
+    border-radius: $wdm-radius-lg;
+    box-shadow: $wdm-shadow;
+    overflow: hidden;
+}
+
+// ── Settings Tabs ────────────────────────────────────────────────
+.wdm-settings-tabs {
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+    border-bottom: 1px solid $wdm-border;
+    background: $wdm-bg-light;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.wdm-settings-tab {
+    padding: 12px 20px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    color: $wdm-text-muted;
+    border-bottom: 3px solid transparent;
+    background: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    white-space: nowrap;
+    transition: $wdm-transition;
+    font-family: $wdm-font;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    .dashicons {
+        font-size: 16px;
+        width: 16px;
+        height: 16px;
+    }
+
+    &:hover {
+        color: $wdm-blue;
+        background: rgba(4, 33, 87, 0.03);
+    }
+
+    &:focus {
+        outline: none;
+        box-shadow: inset 0 0 0 2px rgba(4, 33, 87, 0.15);
+    }
+}
+
+.wdm-settings-tab.wdm-tab-active {
+    border-bottom-color: $wdm-blue;
+    color: $wdm-blue;
+    font-weight: 700;
+    background: $wdm-white;
+}
+
+// ── Settings Panels ──────────────────────────────────────────────
+.wdm-settings-panel {
+    padding: 32px;
+    display: none;
+}
+
+.wdm-settings-panel.wdm-panel-active {
+    display: block;
+}
+
+// ── Section Headings ─────────────────────────────────────────────
+.wdm-section-heading {
+    font-size: 13px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: $wdm-blue;
+    letter-spacing: 0.5px;
+    margin: 0 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid $wdm-bg-light;
+}
+
+// ── Field Groups ─────────────────────────────────────────────────
+.wdm-field-group {
+    margin-bottom: 20px;
+
+    label {
+        display: block;
+        font-weight: 600;
+        font-size: 13px;
+        color: $wdm-text;
+        margin-bottom: 6px;
+    }
+
+    .wdm-description {
+        font-size: 12px;
+        color: $wdm-text-muted;
+        margin-top: 4px;
+        line-height: 1.5;
+    }
+}
+
+// ── Inputs ───────────────────────────────────────────────────────
+.wdm-input,
+.wdm-select,
+.wdm-textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid $wdm-border;
+    border-radius: $wdm-radius;
+    font-size: 14px;
+    font-family: $wdm-font;
+    color: $wdm-text;
+    background: $wdm-white;
+    transition: $wdm-transition;
+
+    &:focus {
+        outline: none;
+        border-color: $wdm-blue;
+        box-shadow: 0 0 0 3px rgba(4, 33, 87, 0.1);
+    }
+
+    &::placeholder {
+        color: $wdm-text-muted;
+        opacity: 0.7;
+    }
+
+    &:disabled {
+        background: $wdm-bg-light;
+        cursor: not-allowed;
+        opacity: 0.7;
+    }
+}
+
+.wdm-textarea {
+    min-height: 100px;
+    resize: vertical;
+    line-height: 1.5;
+}
+
+.wdm-select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%236b7280' d='M1.41 0L6 4.58 10.59 0 12 1.41l-6 6-6-6z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 36px;
+}
+
+// ── Radio & Checkbox Groups ──────────────────────────────────────
+.wdm-radio-group,
+.wdm-checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.wdm-radio-item,
+.wdm-checkbox-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 13px;
+    color: $wdm-text;
+    cursor: pointer;
+
+    input[type="radio"],
+    input[type="checkbox"] {
+        margin-top: 2px;
+        flex-shrink: 0;
+    }
+
+    .wdm-radio-label,
+    .wdm-checkbox-label {
+        font-weight: 400;
+    }
+
+    .wdm-radio-description,
+    .wdm-checkbox-description {
+        font-size: 12px;
+        color: $wdm-text-muted;
+        margin-top: 2px;
+    }
+}
+
+// ── Settings Footer ──────────────────────────────────────────────
+.wdm-settings-footer {
+    padding: 16px 32px;
+    border-top: 1px solid $wdm-border;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    background: $wdm-bg-light;
+}
+
+// ── Settings Cards (grouped sections) ───────────────────────────
+.wdm-settings-card {
+    background: $wdm-white;
+    border: 1px solid $wdm-border;
+    border-radius: $wdm-radius-lg;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.wdm-settings-card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 20px 24px;
+    background: $wdm-bg-light;
+    border-bottom: 1px solid $wdm-border;
+
+    > .dashicons {
+        font-size: 22px;
+        width: 22px;
+        height: 22px;
+        color: $wdm-blue;
+        margin-top: 2px;
+        flex-shrink: 0;
+    }
+
+    h3 {
+        font-size: 15px;
+        font-weight: 700;
+        color: $wdm-text;
+        margin: 0 0 2px;
+    }
+
+    p {
+        font-size: 13px;
+        color: $wdm-text-muted;
+        margin: 0;
+        line-height: 1.4;
+    }
+}
+
+.wdm-settings-card-body {
+    padding: 20px 24px;
+}
+
+// ── Two-column row for side-by-side fields ──────────────────────
+.wdm-settings-row-2col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+
+    @media (max-width: 600px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+// ── Color Picker Rows (Styles tab) ──────────────────────────────
+// @since 1.5.0
+.wdm-color-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.wdm-color-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 100px;
+
+    span {
+        font-size: 12px;
+        font-weight: 600;
+        color: $wdm-text-muted;
+    }
+
+    input[type="color"] {
+        width: 48px;
+        height: 32px;
+        padding: 2px;
+        border: 1px solid $wdm-border;
+        border-radius: $wdm-radius;
+        cursor: pointer;
+        background: $wdm-white;
+
+        &::-webkit-color-swatch-wrapper {
+            padding: 2px;
+        }
+
+        &::-webkit-color-swatch {
+            border: none;
+            border-radius: 3px;
+        }
+
+        &::-moz-color-swatch {
+            border: none;
+            border-radius: 3px;
+        }
+    }
+}
+
+// ── Settings Actions (per-tab save button row) ─────────────────
+.wdm-settings-actions {
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid $wdm-border;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+// ── Input Row (side-by-side inputs) ─────────────────────────────
+.wdm-input-row {
+    display: flex;
+    align-items: stretch;
+
+    // When used with small inputs + suffix (non-key fields).
+    &:has(.wdm-input-small) {
+        gap: 8px;
+        align-items: center;
+    }
+
+    // Key input — remove right border/radius for seamless toggle join.
+    > .wdm-input:not(.wdm-input-small) {
+        flex: 1;
+        border-radius: $wdm-radius 0 0 $wdm-radius;
+        border-right: none;
+    }
+
+    // When the input is the last child (no toggle), restore full radius.
+    > .wdm-input:last-child {
+        border-radius: $wdm-radius;
+        border-right: 1px solid $wdm-border;
+    }
+
+    // Small inputs keep their own radius.
+    > .wdm-input-small {
+        border-radius: $wdm-radius;
+        border-right: 1px solid $wdm-border;
+    }
+}
+
+.wdm-input-prefix,
+.wdm-input-suffix {
+    font-size: 13px;
+    color: $wdm-text-muted;
+    white-space: nowrap;
+}
+
+// ── Toggle Password Visibility ──────────────────────────────────
+.wdm-toggle-password {
+    background: $wdm-bg-light;
+    border: 1px solid $wdm-border;
+    border-left: none;
+    border-radius: 0 $wdm-radius $wdm-radius 0;
+    padding: 0 14px;
+    cursor: pointer;
+    color: $wdm-text-muted;
+    transition: $wdm-transition;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+
+    .dashicons {
+        font-size: 18px;
+        width: 18px;
+        height: 18px;
+    }
+
+    &:hover {
+        background: rgba($wdm-blue, 0.06);
+        color: $wdm-blue;
+    }
+}
+
+// ── Webhook URL — Pro only (Stripe), removed in Lite.
+
+// ── Integration Field Group — Pro only, removed in Lite.
+
+// ── Custom CSS Editor & Styles Designer — Pro only, removed in Lite.
+
+// ── Notice Icon / Text ──────────────────────────────────────────
+.wdm-notice-icon {
+    flex-shrink: 0;
+}
+
+.wdm-notice-text {
+    flex: 1;
+}
+
+// ── Responsive ───────────────────────────────────────────────────
+@media (max-width: 768px) {
+    .wdm-settings-tabs {
+        flex-wrap: nowrap;
+    }
+
+    .wdm-settings-tab {
+        padding: 10px 14px;
+        font-size: 12px;
+    }
+
+    .wdm-settings-panel {
+        padding: 20px 16px;
+    }
+
+    .wdm-settings-footer {
+        padding: 12px 16px;
+        flex-direction: column;
+
+        .wdm-btn {
+            width: 100%;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .wdm-settings-tab {
+        padding: 10px 12px;
+
+        .dashicons {
+            display: none;
+        }
+    }
+
+    .wdm-settings-panel {
+        padding: 16px 12px;
+    }
+}
+
+// ── Highlight Pulse Animation ────────────────────────────────────
+.wdm-highlight-pulse {
+    animation: wdmHighlightPulse 1.5s ease-in-out 2;
+    border-color: $wdm-blue !important;
+    box-shadow: 0 0 0 3px rgba($wdm-blue, 0.15) !important;
+}
+
+@keyframes wdmHighlightPulse {
+    0%   { box-shadow: 0 0 0 0 rgba($wdm-blue, 0.3); }
+    50%  { box-shadow: 0 0 0 8px rgba($wdm-blue, 0.08); }
+    100% { box-shadow: 0 0 0 0 rgba($wdm-blue, 0.3); }
+}
+
+// ── Danger Zone Tab & Panel ─────────────────────────────────────
+.wdm-tab-danger {
+    color: $wdm-error !important;
+
+    &:hover {
+        color: $wdm-error !important;
+        background: rgba($wdm-error, 0.04) !important;
+    }
+
+    &.wdm-tab-active {
+        color: $wdm-error !important;
+        border-bottom-color: $wdm-error !important;
+    }
+}
+
+.wdm-danger-zone-panel {
+    .wdm-notice-error {
+        margin-bottom: 24px;
+    }
+}
+
+.wdm-danger-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba($wdm-border, 0.5);
+
+    h4 {
+        font-size: 13px;
+        font-weight: 700;
+        color: $wdm-text;
+        margin: 0 0 2px;
+    }
+
+    p {
+        font-size: 12px;
+        color: $wdm-text-muted;
+        margin: 0;
+        line-height: 1.5;
+    }
+
+    .wdm-btn-danger {
+        flex-shrink: 0;
+        white-space: nowrap;
+        padding: 6px 16px;
+        font-size: 12px;
+    }
+}
+
+.wdm-danger-card-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.wdm-danger-count {
+    display: inline-block;
+    margin-top: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    color: $wdm-error;
+    background: rgba($wdm-error, 0.06);
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+.wdm-danger-card-critical {
+    padding-top: 20px;
+    margin-top: 4px;
+
+    h4 {
+        color: $wdm-error;
+    }
+
+    .wdm-btn-danger {
+        background: $wdm-error;
+        color: $wdm-white;
+        border-color: $wdm-error;
+        padding: 8px 20px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 768px) {
+    .wdm-danger-card {
+        flex-direction: column;
+        align-items: flex-start;
+
+        .wdm-btn-danger {
+            width: 100%;
+        }
+    }
+}
+
+// ── Import / Export ─────────────────────────────────────────────
+
+.wdm-import-export-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: start;
+
+    @media (max-width: 900px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.wdm-export-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.wdm-export-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+// Drop zone.
+.wdm-import-dropzone {
+    border: 2px dashed $wdm-border;
+    border-radius: $wdm-radius-lg;
+    padding: 40px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: $wdm-transition;
+    background: $wdm-bg-light;
+
+    &:hover,
+    &.wdm-dropzone-active {
+        border-color: $wdm-blue;
+        background: rgba($wdm-blue, 0.03);
+    }
+
+    .wdm-import-dropzone-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+
+        .dashicons {
+            font-size: 36px;
+            width: 36px;
+            height: 36px;
+            color: $wdm-text-muted;
+        }
+
+        p {
+            margin: 0;
+            font-size: 14px;
+            color: $wdm-text-muted;
+        }
+    }
+
+    .wdm-import-dropzone-or {
+        font-size: 12px;
+        color: $wdm-text-muted;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+}
+
+// File info bar.
+.wdm-import-file-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    background: $wdm-bg-light;
+    border: 1px solid $wdm-border;
+    border-radius: $wdm-radius;
+    margin-bottom: 16px;
+
+    .dashicons {
+        color: $wdm-blue;
+        flex-shrink: 0;
+    }
+
+    .wdm-import-filename {
+        flex: 1;
+        font-weight: 600;
+        font-size: 14px;
+        color: $wdm-text;
+        word-break: break-all;
+    }
+}
+
+// Summary metadata.
+.wdm-import-summary {
+    margin-bottom: 16px;
+
+    .wdm-import-meta {
+        display: inline-block;
+        font-size: 12px;
+        color: $wdm-text-muted;
+        margin-right: 16px;
+    }
+}
+
+// Selectable items.
+.wdm-import-select-items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding: 16px;
+    background: $wdm-bg-light;
+    border-radius: $wdm-radius;
+}
+
+.wdm-import-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+// Import result.
+.wdm-import-result-details {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.wdm-import-result-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    background: $wdm-white;
+    border: 1px solid $wdm-border;
+    border-radius: $wdm-radius;
+
+    .wdm-import-result-label {
+        font-weight: 600;
+        font-size: 14px;
+        color: $wdm-text;
+    }
+}

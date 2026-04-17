@@ -1,0 +1,19 @@
+/**
+ * WPRobo DocuMerge — Admin Stylesheet (Master)
+ *
+ * Imports all partials for the admin interface.
+ * Compiled to assets/css/admin/main.min.css.
+ *
+ * @package WPRobo_DocuMerge
+ * @since   1.0.0
+ */
+
+@import 'variables';
+@import 'base';
+@import 'components';
+@import 'settings';
+@import 'template-manager';
+@import 'form-builder';
+@import 'submissions';
+@import 'wizard';
+@import 'pro-upsell';

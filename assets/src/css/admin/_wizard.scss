@@ -1,0 +1,30 @@
+/**
+ * WPRobo DocuMerge — Setup Wizard Styles
+ *
+ * Full-screen overlay wizard with 4 steps.
+ * Uses WPRobo brand colours from Section 7 of CLAUDE.md.
+ *
+ * @package WPRobo_DocuMerge
+ * @since   1.0.0
+ */
+
+// ── Variables ─────────────────────────────────────────────────────
+$wdm-blue:        #042157;
+$wdm-green:       #166441;
+$wdm-blue-light:  #0a3d8f;
+$wdm-green-light: #1e8a56;
+$wdm-bg-light:    #f0f4fa;
+$wdm-bg-green:    #eaf4ee;
+$wdm-border:      #dde5f0;
+$wdm-text:        #1a1a1a;
+$wdm-text-muted:  #6b7280;
+$wdm-white:       #ffffff;
+$wdm-error:       #dc2626;
+$wdm-success:     #166441;
+$wdm-warning:     #d97706;
+$wdm-radius:      6px;
+$wdm-radius-lg:   10px;
+$wdm-shadow:      0 2px 8px rgba(4, 33, 87, 0.08);
+$wdm-shadow-lg:   0 4px 20px rgba(4, 33, 87, 0.12);
+$wdm-transition:  all 0.2s ease;
+$wdm-font:        -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;

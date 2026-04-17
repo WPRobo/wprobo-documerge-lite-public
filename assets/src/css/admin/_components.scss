@@ -1,0 +1,976 @@
+/**
+ * WPRobo DocuMerge — Component Styles
+ *
+ * Reusable UI components: cards, buttons, badges,
+ * notices, stat cards, tables, empty states, toasts,
+ * and loading states.
+ *
+ * @package WPRobo_DocuMerge
+ * @since   1.0.0
+ */
+
+// ── Notices ──────────────────────────────────────────────────────
+.wdm-notice {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-radius: $wdm-radius;
+    margin-bottom: 12px;
+    font-size: 13px;
+    line-height: 1.5;
+
+    .dashicons {
+        flex-shrink: 0;
+    }
+
+    .wdm-notice-message {
+        flex: 1;
+    }
+}
+
+.wdm-notice-content {
+    flex: 1;
+}
+
+.wdm-notice-success {
+    background: linear-gradient(135deg, #f0fdf4, #f8fdf9);
+    border: 1px solid rgba(22, 100, 65, 0.2);
+    border-left: 4px solid $wdm-success;
+    color: $wdm-success;
+    box-shadow: 0 2px 8px rgba(22, 100, 65, 0.08);
+    font-weight: 600;
+
+    .dashicons {
+        color: $wdm-success;
+        font-size: 22px;
+        width: 22px;
+        height: 22px;
+    }
+}
+
+.wdm-notice-error {
+    background: linear-gradient(135deg, #fef2f2, #fff5f5);
+    border: 1px solid rgba(220, 38, 38, 0.2);
+    border-left: 4px solid $wdm-error;
+    color: $wdm-error;
+    box-shadow: 0 2px 8px rgba(220, 38, 38, 0.08);
+    font-weight: 600;
+
+    .dashicons {
+        color: $wdm-error;
+        font-size: 22px;
+        width: 22px;
+        height: 22px;
+    }
+}
+
+.wdm-notice-warning {
+    background: linear-gradient(135deg, #fffbeb, #fefce8);
+    border: 1px solid rgba(217, 119, 6, 0.2);
+    border-left: 4px solid $wdm-warning;
+    color: #92400e;
+    box-shadow: 0 2px 8px rgba(217, 119, 6, 0.08);
+    font-weight: 600;
+
+    .dashicons {
+        color: $wdm-warning;
+        font-size: 22px;
+        width: 22px;
+        height: 22px;
+    }
+}
+
+.wdm-notice-info {
+    background: linear-gradient(135deg, $wdm-bg-light, #f5f8fd);
+    border: 1px solid rgba(4, 33, 87, 0.15);
+    border-left: 4px solid $wdm-blue;
+    color: $wdm-blue;
+    box-shadow: 0 2px 8px rgba(4, 33, 87, 0.06);
+    font-weight: 600;
+
+    .dashicons {
+        color: $wdm-blue;
+        font-size: 22px;
+        width: 22px;
+        height: 22px;
+    }
+}
+
+.wdm-notice-dismiss {
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
+    color: inherit;
+    opacity: 0.4;
+    transition: $wdm-transition;
+    flex-shrink: 0;
+    font-size: 18px;
+    line-height: 1;
+    border-radius: 4px;
+
+    &:hover {
+        opacity: 0.8;
+        background: rgba(0, 0, 0, 0.06);
+    }
+}
+
+// ── Buttons ──────────────────────────────────────────────────────
+.wdm-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: $wdm-font;
+    line-height: 1;
+    border-radius: $wdm-radius;
+    cursor: pointer;
+    transition: $wdm-transition;
+    text-decoration: none;
+    white-space: nowrap;
+    border: 2px solid transparent;
+
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(4, 33, 87, 0.15);
+    }
+
+    &:disabled,
+    &[disabled] {
+        opacity: 0.6;
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+
+    .dashicons {
+        font-size: 16px;
+        width: 16px;
+        height: 16px;
+        line-height: 1;
+    }
+}
+
+.wdm-btn-primary {
+    background: $wdm-blue;
+    color: $wdm-white;
+    border-color: $wdm-blue;
+
+    &:hover {
+        background: $wdm-blue-light;
+        border-color: $wdm-blue-light;
+        color: $wdm-white;
+    }
+
+    &:active {
+        background: darken($wdm-blue, 5%);
+        border-color: darken($wdm-blue, 5%);
+    }
+}
+
+.wdm-btn-secondary {
+    background: transparent;
+    color: $wdm-green;
+    border-color: $wdm-green;
+
+    &:hover {
+        background: $wdm-green;
+        color: $wdm-white;
+    }
+
+    &:active {
+        background: darken($wdm-green, 5%);
+        border-color: darken($wdm-green, 5%);
+        color: $wdm-white;
+    }
+}
+
+.wdm-btn-danger {
+    background: transparent;
+    color: $wdm-error;
+    border-color: $wdm-error;
+
+    &:hover {
+        background: $wdm-error;
+        color: $wdm-white;
+    }
+
+    &:active {
+        background: darken($wdm-error, 5%);
+        border-color: darken($wdm-error, 5%);
+        color: $wdm-white;
+    }
+}
+
+.wdm-btn-ghost {
+    background: transparent;
+    color: $wdm-text-muted;
+    border-color: $wdm-border;
+
+    &:hover {
+        background: $wdm-bg-light;
+        color: $wdm-text;
+        border-color: $wdm-border;
+    }
+}
+
+// Default button (no variant) — subtle ghost look.
+.wdm-btn:not(.wdm-btn-primary):not(.wdm-btn-secondary):not(.wdm-btn-danger):not(.wdm-btn-ghost) {
+    background: $wdm-bg-light;
+    color: $wdm-text;
+    border-color: $wdm-border;
+
+    &:hover {
+        border-color: $wdm-blue;
+        color: $wdm-blue;
+        background: rgba(4, 33, 87, 0.04);
+    }
+}
+
+.wdm-btn-sm {
+    padding: 6px 12px;
+    font-size: 12px;
+}
+
+.wdm-btn-lg {
+    padding: 14px 28px;
+    font-size: 15px;
+}
+
+// ── Cards ────────────────────────────────────────────────────────
+.wdm-card {
+    background: $wdm-white;
+    border: 1px solid $wdm-border;
+    border-radius: $wdm-radius-lg;
+    padding: 24px;
+    box-shadow: $wdm-shadow;
+    transition: $wdm-transition;
+}
+
+.wdm-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid $wdm-border;
+}
+
+.wdm-card-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: $wdm-blue;
+    margin: 0;
+}
+
+// ── Stat Cards ───────────────────────────────────────────────────
+.wdm-stat-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 24px;
+}
+
+.wdm-stat-card {
+    background: $wdm-white;
+    border: 1px solid $wdm-border;
+    border-radius: $wdm-radius-lg;
+    padding: 20px;
+    box-shadow: $wdm-shadow;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: $wdm-transition;
+
+    &:hover {
+        box-shadow: $wdm-shadow-lg;
+        transform: translateY(-1px);
+    }
+}
+
+.wdm-stat-card-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    .dashicons {
+        font-size: 22px;
+        width: 22px;
+        height: 22px;
+    }
+
+    &.wdm-stat-icon-blue {
+        background: $wdm-bg-light;
+        color: $wdm-blue;
+    }
+
+    &.wdm-stat-icon-green {
+        background: $wdm-bg-green;
+        color: $wdm-green;
+    }
+
+    &.wdm-stat-icon-warning {
+        background: #fff7ed;
+        color: $wdm-warning;
+    }
+
+    &.wdm-stat-icon-error {
+        background: #fef2f2;
+        color: $wdm-error;
+    }
+}
+
+.wdm-stat-card-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.wdm-stat-card-value {
+    font-size: 28px;
+    font-weight: 700;
+    color: $wdm-text;
+    line-height: 1.2;
+}
+
+.wdm-stat-card-label {
+    font-size: 13px;
+    color: $wdm-text-muted;
+    margin-top: 2px;
+}
+
+// ── Tables ───────────────────────────────────────────────────────
+.wdm-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    background: $wdm-white;
+    border: 1px solid $wdm-border;
+    border-radius: $wdm-radius-lg;
+    overflow: hidden;
+    box-shadow: $wdm-shadow;
+
+    th {
+        background: $wdm-bg-light;
+        color: $wdm-blue;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        padding: 14px 16px;
+        text-align: left;
+        border-bottom: 2px solid $wdm-border;
+        white-space: nowrap;
+    }
+
+    td {
+        padding: 14px 16px;
+        border-bottom: 1px solid rgba($wdm-border, 0.6);
+        font-size: 13px;
+        color: $wdm-text;
+        vertical-align: middle;
+    }
+
+    tr:last-child td {
+        border-bottom: none;
+    }
+
+    tbody tr {
+        transition: background-color 0.15s ease;
+    }
+
+    tbody tr:nth-child(even) td {
+        background: rgba($wdm-bg-light, 0.35);
+    }
+
+    tbody tr:hover td {
+        background: rgba($wdm-blue, 0.03);
+    }
+
+    .wdm-table-actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        justify-content: flex-end;
+    }
+}
+
+.wdm-table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+// ── Badges ───────────────────────────────────────────────────────
+.wdm-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.3;
+    white-space: nowrap;
+}
+
+.wdm-badge-success {
+    background: $wdm-bg-green;
+    color: $wdm-green;
+}
+
+.wdm-badge-pending {
+    background: #fff7ed;
+    color: $wdm-warning;
+}
+
+.wdm-badge-error {
+    background: #fef2f2;
+    color: $wdm-error;
+}
+
+.wdm-badge-info {
+    background: $wdm-bg-light;
+    color: $wdm-blue;
+}
+
+// ── Empty State ──────────────────────────────────────────────────
+.wdm-empty-state {
+    text-align: center;
+    padding: 48px 24px;
+
+    // Icon above the heading — large and muted.
+    > .dashicons {
+        font-size: 48px;
+        width: 48px;
+        height: 48px;
+        color: $wdm-blue;
+        opacity: 0.2;
+        margin-bottom: 16px;
+    }
+}
+
+.wdm-empty-state-heading {
+    font-size: 18px;
+    font-weight: 700;
+    color: $wdm-text;
+    margin: 0 0 8px;
+}
+
+.wdm-empty-state-text {
+    font-size: 14px;
+    color: $wdm-text-muted;
+    margin: 0 0 24px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.wdm-empty-state-action {
+    margin-top: 0;
+
+    .wdm-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+
+        .dashicons {
+            font-size: 16px;
+            width: 16px;
+            height: 16px;
+            color: inherit;
+            margin-bottom: 0;
+            vertical-align: middle;
+            margin-right: 2px;
+        }
+    }
+}
+
+// ── Quick Actions ────────────────────────────────────────────────
+.wdm-quick-actions {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+// ── Help Cards ───────────────────────────────────────────────────
+.wdm-help-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.wdm-help-card {
+    background: $wdm-white;
+    border: 1px solid $wdm-border;
+    border-radius: $wdm-radius-lg;
+    padding: 24px;
+    box-shadow: $wdm-shadow;
+    transition: $wdm-transition;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+
+    &:hover {
+        box-shadow: $wdm-shadow-lg;
+        border-color: $wdm-blue;
+        transform: translateY(-2px);
+    }
+}
+
+.wdm-help-card-header-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.wdm-help-card-arrow {
+    color: $wdm-border;
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+    transition: $wdm-transition;
+
+    .wdm-help-card:hover & {
+        color: $wdm-blue;
+        transform: translateX(3px);
+    }
+}
+
+.wdm-help-card-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .dashicons {
+        font-size: 24px;
+        width: 24px;
+        height: 24px;
+    }
+
+    &.wdm-help-icon-blue {
+        background: rgba(4, 33, 87, 0.08);
+        color: $wdm-blue;
+    }
+    &.wdm-help-icon-green {
+        background: rgba(22, 100, 65, 0.08);
+        color: $wdm-green;
+    }
+    &.wdm-help-icon-purple {
+        background: rgba(109, 40, 217, 0.08);
+        color: #6d28d9;
+    }
+    &.wdm-help-icon-amber {
+        background: rgba(217, 119, 6, 0.08);
+        color: $wdm-warning;
+    }
+}
+
+.wdm-help-card-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: $wdm-text;
+    margin: 0 0 8px;
+}
+
+.wdm-help-card-desc {
+    font-size: 13px;
+    color: $wdm-text-muted;
+    margin: 0;
+    line-height: 1.6;
+    flex: 1;
+}
+
+// ── System Info ──────────────────────────────────────────────────
+.wdm-system-info {
+    .wdm-system-info-value {
+        font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+        font-size: 13px;
+    }
+}
+
+.wdm-system-info-table {
+    width: 100%;
+    border-collapse: collapse;
+
+    td {
+        padding: 10px 16px;
+        border-bottom: 1px solid $wdm-border;
+        font-size: 13px;
+        vertical-align: middle;
+    }
+
+    tr:last-child td {
+        border-bottom: none;
+    }
+
+    .wdm-system-info-label {
+        font-weight: 700;
+        color: $wdm-text;
+        width: 200px;
+        white-space: nowrap;
+    }
+
+    .wdm-system-info-value {
+        color: $wdm-text-muted;
+        font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+    }
+}
+
+// ── Toast Notifications ──────────────────────────────────────────
+.wdm-toast {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    padding: 14px 20px;
+    border-radius: $wdm-radius;
+    font-size: 14px;
+    font-weight: 600;
+    color: $wdm-white;
+    background: $wdm-blue;
+    box-shadow: $wdm-shadow-lg;
+    z-index: 999999;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    pointer-events: none;
+    max-width: 360px;
+}
+
+.wdm-toast-visible {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.wdm-toast-success {
+    background: $wdm-success;
+}
+
+.wdm-toast-error {
+    background: $wdm-error;
+}
+
+.wdm-toast-warning {
+    background: $wdm-warning;
+}
+
+// ── Loading / Spinner ────────────────────────────────────────────
+@keyframes wdm-spin {
+    0%   { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.wdm-spinner {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 2px solid $wdm-border;
+    border-top-color: $wdm-blue;
+    border-radius: 50%;
+    animation: wdm-spin 0.6s linear infinite;
+}
+
+.wdm-spinner-sm {
+    width: 14px;
+    height: 14px;
+    border-width: 2px;
+}
+
+.wdm-spinner-lg {
+    width: 28px;
+    height: 28px;
+    border-width: 3px;
+}
+
+.wdm-loading {
+    position: relative;
+    pointer-events: none;
+
+    &::after {
+        content: '';
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-top-color: $wdm-white;
+        border-radius: 50%;
+        animation: wdm-spin 0.6s linear infinite;
+        margin-left: 8px;
+        vertical-align: middle;
+    }
+
+    .wdm-btn-text {
+        display: none;
+    }
+}
+
+.wdm-btn:not(.wdm-loading) {
+    .wdm-btn-text {
+        display: inline;
+    }
+}
+
+// ── Overlay / Loader ─────────────────────────────────────────────
+.wdm-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 999998;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wdm-overlay-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid $wdm-border;
+    border-top-color: $wdm-blue;
+    border-radius: 50%;
+    animation: wdm-spin 0.6s linear infinite;
+}
+
+// ── Responsive ───────────────────────────────────────────────────
+@media (max-width: 768px) {
+    .wdm-stat-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .wdm-stat-card {
+        padding: 16px;
+    }
+
+    .wdm-stat-card-value {
+        font-size: 22px;
+    }
+
+    .wdm-stat-card-icon {
+        width: 40px;
+        height: 40px;
+
+        .dashicons {
+            font-size: 18px;
+            width: 18px;
+            height: 18px;
+        }
+    }
+
+    .wdm-help-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .wdm-table th,
+    .wdm-table td {
+        padding: 10px 12px;
+    }
+
+    .wdm-quick-actions {
+        flex-direction: column;
+    }
+
+    .wdm-toast {
+        left: 16px;
+        right: 16px;
+        max-width: none;
+        bottom: 16px;
+    }
+}
+
+@media (max-width: 600px) {
+    .wdm-stat-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .wdm-card {
+        padding: 16px;
+    }
+
+    .wdm-empty-state {
+        padding: 32px 16px;
+    }
+}
+
+// ── Utility Classes ─────────────────────────────────────────────
+.wdm-text-muted {
+    color: $wdm-text-muted;
+    font-size: 13px;
+}
+
+.wdm-hidden {
+    display: none !important;
+}
+
+.wdm-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.wdm-required {
+    color: $wdm-error;
+}
+
+// ── Card Body ───────────────────────────────────────────────────
+.wdm-card-body {
+    padding: 0;
+}
+
+.wdm-card-link {
+    font-size: 13px;
+    font-weight: 600;
+    color: $wdm-blue;
+    text-decoration: none;
+
+    &:hover {
+        color: $wdm-blue-light;
+    }
+}
+
+// ── Dashboard Stat Card Variants ────────────────────────────────
+.wdm-stat-value {
+    font-size: 28px;
+    font-weight: 700;
+    color: $wdm-text;
+    line-height: 1.2;
+    display: block;
+}
+
+.wdm-stat-label {
+    font-size: 13px;
+    color: $wdm-text-muted;
+    display: block;
+    margin-top: 2px;
+}
+
+.wdm-stat-card-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: $wdm-text-muted;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+// ── Dashboard Charts Row ────────────────────────────────────────
+.wdm-charts-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 24px;
+
+    @media (max-width: 900px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.wdm-chart-card {
+    min-height: 280px;
+}
+
+.wdm-chart-empty {
+    text-align: center;
+    color: $wdm-text-muted;
+    padding: 40px 0;
+    font-size: 14px;
+    margin: 0;
+}
+
+// ── Quick Actions Bar (dashboard top) ────────────────────────────
+.wdm-quick-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    padding: 10px 16px;
+    background: $wdm-white;
+    border: 1px solid $wdm-border;
+    border-radius: 0 0 $wdm-radius-lg $wdm-radius-lg;
+    margin-bottom: 20px;
+    border-top: none;
+
+    a {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        padding: 6px 14px;
+        font-size: 13px;
+        font-weight: 500;
+        color: $wdm-text-muted;
+        text-decoration: none;
+        border-radius: $wdm-radius;
+        transition: $wdm-transition;
+
+        .dashicons {
+            font-size: 15px;
+            width: 15px;
+            height: 15px;
+        }
+
+        &:hover {
+            color: $wdm-blue;
+            background: rgba($wdm-blue, 0.05);
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .wdm-quick-bar {
+        gap: 2px;
+        padding: 8px 10px;
+
+        a {
+            padding: 6px 10px;
+            font-size: 12px;
+        }
+    }
+}
+
+// ── Quick Action Cards (legacy/help page) ───────────────────────
+.wdm-quick-action-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 20px;
+    background: $wdm-bg-light;
+    border: 1px solid $wdm-border;
+    border-radius: $wdm-radius;
+    text-decoration: none;
+    color: $wdm-text;
+    font-weight: 600;
+    font-size: 14px;
+    transition: $wdm-transition;
+
+    &:hover {
+        border-color: $wdm-blue;
+        color: $wdm-blue;
+        background: rgba(4, 33, 87, 0.04);
+    }
+
+    .dashicons {
+        font-size: 20px;
+        width: 20px;
+        height: 20px;
+        color: $wdm-blue;
+    }
+}
+
+.wdm-quick-action-label {
+    font-size: 14px;
+}

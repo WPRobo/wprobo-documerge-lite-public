@@ -1,0 +1,37 @@
+{
+    "name": "wprobo/documerge",
+    "description": "WPRobo DocuMerge — Automate document generation from form submissions.",
+    "type": "wordpress-plugin",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Ali Shan",
+            "email": "hello@wprobo.com",
+            "homepage": "https://wprobo.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.4",
+        "phpoffice/phpword": "^1.2",
+        "mpdf/mpdf": "^8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "WPRobo\\DocuMerge\\": "src/"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true,
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    },
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "^1.2",
+        "phpcompatibility/phpcompatibility-wp": "^2.1",
+        "phpmd/phpmd": "^2.15",
+        "squizlabs/php_codesniffer": "^3.13",
+        "wp-coding-standards/wpcs": "^3.3"
+    }
+}

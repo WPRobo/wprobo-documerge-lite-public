@@ -1,0 +1,46 @@
+/**
+ * WPRobo DocuMerge — Design Tokens & Variables
+ *
+ * All colour, spacing, typography, and effect variables
+ * used across the admin interface.
+ *
+ * @package WPRobo_DocuMerge
+ * @since   1.0.0
+ */
+
+// ── Brand Colours ────────────────────────────────────────────────
+$wdm-blue:        #042157;
+$wdm-green:       #166441;
+$wdm-blue-light:  #0a3d8f;
+$wdm-green-light: #1e8a56;
+
+// ── Backgrounds ──────────────────────────────────────────────────
+$wdm-bg-light:    #f0f4fa;
+$wdm-bg-green:    #eaf4ee;
+
+// ── Borders ──────────────────────────────────────────────────────
+$wdm-border:      #dde5f0;
+
+// ── Text ─────────────────────────────────────────────────────────
+$wdm-text:        #1a1a1a;
+$wdm-text-muted:  #6b7280;
+$wdm-white:       #ffffff;
+
+// ── Status Colours ───────────────────────────────────────────────
+$wdm-error:       #dc2626;
+$wdm-success:     #166441;
+$wdm-warning:     #d97706;
+
+// ── Radii ────────────────────────────────────────────────────────
+$wdm-radius:      6px;
+$wdm-radius-lg:   10px;
+
+// ── Shadows ──────────────────────────────────────────────────────
+$wdm-shadow:      0 2px 8px rgba(4, 33, 87, 0.08);
+$wdm-shadow-lg:   0 4px 20px rgba(4, 33, 87, 0.12);
+
+// ── Transitions ──────────────────────────────────────────────────
+$wdm-transition:  all 0.2s ease;
+
+// ── Typography ───────────────────────────────────────────────────
+$wdm-font:        -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;

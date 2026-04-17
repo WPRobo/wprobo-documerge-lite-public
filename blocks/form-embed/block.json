@@ -1,0 +1,25 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "wprobo-documerge/form-embed",
+    "version": "1.4.0",
+    "title": "DocuMerge Form",
+    "category": "widgets",
+    "icon": "media-document",
+    "description": "Embed a WPRobo DocuMerge document collection form.",
+    "keywords": ["form", "document", "documerge", "pdf", "merge"],
+    "supports": {
+        "html": false,
+        "align": ["wide", "full"],
+        "className": true
+    },
+    "attributes": {
+        "formId": {
+            "type": "integer",
+            "default": 0
+        }
+    },
+    "textdomain": "wprobo-documerge-lite",
+    "editorScript": "file:./index.js",
+    "editorStyle": "file:./editor.css"
+}

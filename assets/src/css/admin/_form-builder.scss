@@ -1,0 +1,930 @@
+/**
+ * WPRobo DocuMerge — Form Builder Styles
+ *
+ * Two-panel builder, field cards, drag-drop, settings panels.
+ *
+ * @package WPRobo_DocuMerge
+ * @since   1.0.0
+ */
+
+/* ── Forms List Table ────────────────────────────────────────── */
+.wdm-form-title-link {
+    color: $wdm-blue;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+        color: $wdm-blue-light;
+    }
+}
+
+.wdm-template-link {
+    color: $wdm-blue;
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 1px dashed rgba($wdm-blue, 0.4);
+    padding-bottom: 1px;
+
+    &:hover {
+        color: $wdm-blue-light;
+        border-bottom-color: $wdm-blue-light;
+        border-bottom-style: solid;
+    }
+}
+
+.wdm-submission-count-link {
+    color: $wdm-blue;
+    font-weight: 600;
+    text-decoration: none;
+
+    &:hover {
+        color: $wdm-blue-light;
+    }
+}
+
+.wdm-shortcode-cell {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.wdm-shortcode-code {
+    display: inline-block;
+    padding: 4px 8px;
+    background: $wdm-bg-light;
+    border: 1px solid $wdm-border;
+    border-radius: 4px;
+    font-size: 12px;
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+    color: $wdm-text;
+}
+
+.wdm-copy-shortcode-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: $wdm-bg-light;
+    border: 1px solid $wdm-border;
+    border-radius: 4px;
+    cursor: pointer;
+    color: $wdm-text-muted;
+    transition: $wdm-transition;
+    padding: 0;
+
+    &:hover {
+        border-color: $wdm-blue;
+        color: $wdm-blue;
+        background: rgba(4, 33, 87, 0.04);
+    }
+
+    .dashicons {
+        font-size: 14px;
+        width: 14px;
+        height: 14px;
+    }
+}
+
+/* ── Builder Header ──────────────────────────────────────────── */
+.wdm-builder-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 24px;
+    background: $wdm-white;
+    border: 1px solid $wdm-border;
+    border-radius: $wdm-radius-lg;
+    margin-bottom: 20px;
+    box-shadow: $wdm-shadow;
+}
+
+.wdm-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: $wdm-text-muted;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    transition: $wdm-transition;
+    flex-shrink: 0;
+
+    &:hover { color: $wdm-blue; }
+    .dashicons { font-size: 16px; width: 16px; height: 16px; }
+}
+
+.wdm-form-title-input {
+    flex: 1;
+    border: none;
+    border-bottom: 2px solid transparent;
+    font-size: 18px;
+    font-weight: 700;
+    color: $wdm-blue;
+    padding: 6px 8px;
+    background: transparent;
+    transition: $wdm-transition;
+
+    &:focus {
+        outline: none;
+        border-bottom-color: $wdm-blue;
+    }
+}
+
+/* ── Two-Panel Layout ────────────────────────────────────────── */
+.wdm-builder-wrap {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 20px;
+    align-items: start;
+
+    // Integrated mode — no sidebar, full width.
+    &.wdm-builder-integrated {
+        grid-template-columns: 1fr;
+    }
+
+    @media (max-width: 900px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ── Integrated Mode Notice ────────────────────────────────── */
+.wdm-integrated-notice {
+    text-align: center;
+    padding: 48px 32px;
+    background: $wdm-white;
+    border: 1px solid $wdm-border;
+    border-radius: $wdm-radius-lg;
+    box-shadow: $wdm-shadow;
+}
+
+.wdm-integrated-notice-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: $wdm-bg-light;
+    margin-bottom: 16px;
+
+    .dashicons {
+        font-size: 28px;
+        width: 28px;
+        height: 28px;
+        color: $wdm-blue;
+    }
+}
+
+.wdm-integrated-notice h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: $wdm-text;
+    margin: 0 0 8px;
+}
+
+.wdm-integrated-notice p {
+    font-size: 14px;
+    color: $wdm-text-muted;
+    margin: 0 0 24px;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+.wdm-integrated-notice-steps {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.wdm-integrated-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    text-align: left;
+    max-width: 220px;
+    font-size: 13px;
+    color: $wdm-text;
+    line-height: 1.5;
+}
+
+.wdm-integrated-step-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    border-radius: 50%;
+    background: $wdm-blue;
+    color: $wdm-white;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.wdm-integrated-notice-actions {
+    margin-top: 8px;
+}
+
+/* ── Sidebar — Field Types ───────────────────────────────────── */
+.wdm-builder-sidebar {
+    background: $wdm-white;
+    border: 1px solid $wdm-border;
+    border-radius: $wdm-radius-lg;
+    padding: 20px 20px 80px;
+    box-shadow: $wdm-shadow;
+    position: sticky;
+    top: 40px;
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+
+    // Minimal beautiful scrollbar.
+    scrollbar-width: thin;
+    scrollbar-color: rgba($wdm-blue, 0.15) transparent;
+
+    &::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: rgba($wdm-blue, 0.15);
+        border-radius: 10px;
+
+        &:hover {
+            background: rgba($wdm-blue, 0.3);
+        }
+    }
+
+    h3 {
+        font-size: 11px;
+        font-weight: 700;
+        color: $wdm-text-muted;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin: 20px 0 10px;
+
+        &:first-child { margin-top: 0; }
+    }
+}
+
+.wdm-field-type-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.wdm-field-type-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 12px 8px;
+    background: $wdm-bg-light;
+    border: 1px solid $wdm-border;
+    border-radius: $wdm-radius;
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: 600;
+    color: $wdm-text;
+    transition: $wdm-transition;
+
+    &:hover {
+        border-color: $wdm-blue;
+        background: rgba(4, 33, 87, 0.04);
+        color: $wdm-blue;
+    }
+
+    &[disabled] {
+        opacity: 0.4;
+        cursor: not-allowed;
+        &:hover { border-color: $wdm-border; background: $wdm-bg-light; color: $wdm-text; }
+    }
+
+    .dashicons {
+        font-size: 20px;
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* ── Canvas ──────────────────────────────────────────────────── */
+.wdm-builder-main {
+    min-width: 0;
+}
+
+.wdm-builder-canvas {
+    background: $wdm-white;
+    border: 1px solid $wdm-border;
+    border-radius: $wdm-radius-lg;
+    padding: 20px;
+    min-height: 300px;
+    box-shadow: $wdm-shadow;
+}
+
+.wdm-canvas-placeholder {
+    text-align: center;
+    padding: 60px 20px;
+    color: $wdm-text-muted;
+
+    .dashicons {
+        font-size: 40px;
+        width: 40px;
+        height: 40px;
+        color: $wdm-border;
+        margin-bottom: 12px;
+    }
+
+    p {
+        font-size: 14px;
+        margin: 0;
+    }
+}
+
+/* ── Field Cards ─────────────────────────────────────────────── */
+.wdm-field-card {
+    background: $wdm-white;
+    border: 1px solid $wdm-border;
+    border-radius: $wdm-radius;
+    margin-bottom: 10px;
+    transition: $wdm-transition;
+
+    &:hover { border-color: $wdm-blue; }
+    &.ui-sortable-helper {
+        box-shadow: $wdm-shadow-lg;
+        transform: rotate(1deg);
+    }
+}
+
+.wdm-field-placeholder {
+    height: 48px;
+    background: rgba(4, 33, 87, 0.03);
+    border: 2px dashed $wdm-blue;
+    border-radius: $wdm-radius;
+    margin-bottom: 10px;
+}
+
+/* ── Drop Indicator (sidebar → canvas) ──────────────────────── */
+.wdm-drop-indicator {
+    height: 3px;
+    background: $wdm-blue;
+    border-radius: 2px;
+    margin: 4px 0;
+    position: relative;
+    box-shadow: 0 0 8px rgba(4, 33, 87, 0.3);
+    animation: wdm-indicator-pulse 1s ease-in-out infinite;
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        top: -4px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: $wdm-blue;
+    }
+
+    &::before { left: -2px; }
+    &::after  { right: -2px; }
+}
+
+@keyframes wdm-indicator-pulse {
+    0%, 100% { opacity: 1; }
+    50%      { opacity: 0.6; }
+}
+
+.wdm-field-card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    cursor: pointer;
+}
+
+.wdm-field-card-label {
+    flex: 1;
+    font-size: 14px;
+    font-weight: 600;
+    color: $wdm-text;
+    cursor: pointer;
+}
+
+/* ── Drag Preview (sidebar → canvas) ───────────────────────── */
+.wdm-dragging-field-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    background: $wdm-white;
+    border: 1px solid $wdm-blue;
+    border-radius: $wdm-radius;
+    box-shadow: 0 8px 24px rgba(4, 33, 87, 0.18);
+    font-size: 14px;
+    max-width: 360px;
+    min-width: 240px;
+    opacity: 0.95;
+
+    .wdm-field-drag-handle {
+        color: $wdm-text-muted;
+        font-size: 16px;
+    }
+
+    .wdm-field-card-type {
+        background: $wdm-blue;
+        color: $wdm-white;
+        padding: 2px 8px;
+        border-radius: 4px;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+    }
+
+    .wdm-field-card-label {
+        font-weight: 600;
+        color: $wdm-text;
+    }
+}
+
+.wdm-field-drag-handle {
+    cursor: grab;
+    color: $wdm-text-muted;
+    font-size: 16px;
+    &:active { cursor: grabbing; }
+}
+
+.wdm-field-type-badge {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $wdm-blue;
+    background: $wdm-bg-light;
+    padding: 2px 8px;
+    border-radius: 3px;
+    letter-spacing: 0.04em;
+}
+
+.wdm-field-label-preview {
+    flex: 1;
+    font-size: 14px;
+    font-weight: 600;
+    color: $wdm-text;
+}
+
+.wdm-field-card-actions {
+    display: flex;
+    gap: 4px;
+
+    button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 4px;
+        color: $wdm-text-muted;
+        transition: $wdm-transition;
+        border-radius: 4px;
+
+        &:hover { color: $wdm-blue; background: $wdm-bg-light; }
+        &.wdm-field-delete-btn:hover { color: $wdm-error; background: #fef2f2; }
+
+        .dashicons { font-size: 16px; width: 16px; height: 16px; }
+    }
+}
+
+/* ── Field Settings Panel ────────────────────────────────────── */
+.wdm-field-card-settings {
+    padding: 16px 16px 20px;
+    border-top: 1px solid $wdm-border;
+    background: #fafbfd;
+}
+
+.wdm-builder-field-setting {
+    margin-bottom: 14px;
+
+    &:last-child { margin-bottom: 0; }
+
+    > label {
+        display: block;
+        font-size: 12px;
+        font-weight: 600;
+        color: $wdm-text;
+        margin-bottom: 4px;
+    }
+}
+
+.wdm-width-selector {
+    display: flex;
+    gap: 12px;
+
+    label {
+        font-size: 12px;
+        font-weight: 500;
+        color: $wdm-text-muted;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+    }
+
+    input[type="radio"] { margin: 0; }
+}
+
+/* ── Field Card Tabs ────────────────────────────────────────── */
+.wdm-field-tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid $wdm-border;
+    margin-bottom: 14px;
+}
+
+.wdm-field-tab {
+    padding: 8px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    color: $wdm-text-muted;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    transition: $wdm-transition;
+    font-family: $wdm-font;
+
+    &:hover {
+        color: $wdm-blue;
+    }
+
+    &.wdm-field-tab-active {
+        color: $wdm-blue;
+        border-bottom-color: $wdm-blue;
+    }
+}
+
+.wdm-field-tab-content {
+    display: none;
+
+    &.wdm-field-tab-active {
+        display: block;
+    }
+}
+
+/* ── Options List (Dropdown/Radio/Checkbox) ────────────────── */
+.wdm-options-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.wdm-option-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.wdm-option-drag {
+    cursor: grab;
+    color: $wdm-text-muted;
+    font-size: 16px;
+    flex-shrink: 0;
+
+    &:active {
+        cursor: grabbing;
+    }
+}
+
+.wdm-option-row .wdm-input {
+    flex: 1;
+    padding: 8px 10px;
+    font-size: 13px;
+}
+
+.wdm-option-remove {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    color: $wdm-text-muted;
+    transition: $wdm-transition;
+    flex-shrink: 0;
+
+    &:hover {
+        color: $wdm-error;
+    }
+
+    .dashicons {
+        font-size: 16px;
+        width: 16px;
+        height: 16px;
+    }
+}
+
+.wdm-add-option {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: $wdm-blue;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 0;
+    font-family: $wdm-font;
+
+    &:hover {
+        color: $wdm-blue-light;
+    }
+}
+
+/* ── Small Input Variant ───────────────────────────────────── */
+.wdm-input-small {
+    max-width: 120px;
+}
+
+/* ── Builder Main Tabs (Fields / Settings toggle) ──────────── */
+.wdm-builder-main-tabs {
+    display: flex;
+    gap: 0;
+    margin-bottom: 20px;
+    border: 1px solid $wdm-border;
+    border-radius: $wdm-radius;
+    overflow: hidden;
+    background: $wdm-bg-light;
+}
+
+.wdm-builder-main-tab {
+    flex: 1;
+    padding: 10px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    color: $wdm-text-muted;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: $wdm-transition;
+    font-family: $wdm-font;
+    text-align: center;
+
+    &:hover {
+        color: $wdm-blue;
+    }
+
+    &.wdm-builder-main-tab-active {
+        color: $wdm-blue;
+        background: $wdm-white;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    }
+}
+
+.wdm-builder-main-content {
+    display: none;
+
+    &.wdm-builder-main-content-active {
+        display: block;
+    }
+}
+
+/* ── Searchable Checkbox in Field Settings ─────────────────── */
+.wdm-builder-field-setting .wdm-description {
+    display: block;
+    font-size: 11px;
+    color: $wdm-text-muted;
+    margin-top: 4px;
+}
+
+/* ── Form Settings Panel ─────────────────────────────────────── */
+.wdm-builder-settings {
+    background: $wdm-white;
+    border: 1px solid $wdm-border;
+    border-radius: $wdm-radius-lg;
+    padding: 24px;
+    margin-top: 20px;
+    box-shadow: $wdm-shadow;
+
+    h3 {
+        font-size: 14px;
+        font-weight: 700;
+        color: $wdm-blue;
+        margin: 0 0 16px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid $wdm-border;
+    }
+}
+
+/* ── Button Alignment Selector ──────────────────────────────── */
+.wdm-btn-align-selector {
+    display: inline-flex;
+    gap: 6px;
+}
+
+.wdm-align-option {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    cursor: pointer;
+    transition: $wdm-transition;
+    border: 2px solid $wdm-border;
+    border-radius: $wdm-radius;
+    background: $wdm-white;
+    margin: 0;
+
+    &:hover {
+        border-color: $wdm-blue;
+        background: rgba(4, 33, 87, 0.03);
+    }
+
+    input[type="radio"] {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .dashicons {
+        font-size: 32px;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        color: $wdm-text-muted;
+        display: block;
+        margin-top: 8px;
+        margin-left: 3px;
+    }
+}
+
+// Active state via :has().
+.wdm-align-option:has(input:checked) {
+    background: $wdm-blue;
+    border-color: $wdm-blue;
+
+    .dashicons { color: $wdm-white; }
+}
+
+// JS fallback class for browsers without :has().
+.wdm-align-option.wdm-align-active {
+    background: $wdm-blue;
+    border-color: $wdm-blue;
+
+    .dashicons { color: $wdm-white; }
+}
+
+/* ── Step Containers (Multi-Step Mode) — Pro only, removed in Lite. */
+
+/* ── Conditional Logic — Pro only, removed in Lite. */
+
+/* ── Repeater Column Manager — Pro only, removed in Lite. */
+
+/* ── Color Picker Row ───────────────────────────────────────── */
+.wdm-color-row {
+    display: flex;
+    gap: 16px;
+}
+
+.wdm-color-field {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    span {
+        font-size: 12px;
+        color: $wdm-text-muted;
+    }
+
+    input[type="color"] {
+        width: 36px;
+        height: 36px;
+        padding: 2px;
+        border: 1px solid $wdm-border;
+        border-radius: $wdm-radius;
+        cursor: pointer;
+        background: none;
+    }
+}
+
+/* ── Settings Sub-tabs ─────────────────────────────────────── */
+.wdm-settings-subtabs {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid $wdm-border;
+    margin: 16px 0 20px;
+}
+
+.wdm-settings-subtab {
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    color: $wdm-text-muted;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    transition: $wdm-transition;
+    font-family: $wdm-font;
+
+    &:hover {
+        color: $wdm-blue;
+    }
+
+    &.wdm-settings-subtab-active {
+        color: $wdm-blue;
+        border-bottom-color: $wdm-blue;
+    }
+}
+
+.wdm-settings-subtab-content {
+    display: none;
+
+    &.wdm-settings-subtab-active {
+        display: block;
+    }
+}
+
+/* ── Integration Configuration Section ─────────────────────── */
+.wdm-integration-config-section {
+    background: $wdm-bg-light;
+    border: 1px solid $wdm-border;
+    border-radius: $wdm-radius-lg;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+
+    .wdm-section-heading {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin: 0 0 16px;
+        font-size: 14px;
+        font-weight: 700;
+        color: $wdm-blue;
+
+        .dashicons {
+            font-size: 18px;
+            width: 18px;
+            height: 18px;
+            color: $wdm-blue;
+        }
+    }
+}
+
+/* ── Field Mapping Table (Integration) ─────────────────────── */
+.wdm-field-map-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: $wdm-white;
+    border: 1px solid $wdm-border;
+    border-radius: $wdm-radius;
+    overflow: hidden;
+
+    th {
+        text-align: left;
+        font-size: 12px;
+        font-weight: 700;
+        color: $wdm-blue;
+        padding: 10px 14px;
+        border-bottom: 2px solid $wdm-border;
+        background: rgba($wdm-blue, 0.03);
+    }
+
+    th:nth-child(2) {
+        width: 36px;
+        text-align: center;
+        color: $wdm-text-muted;
+    }
+
+    td {
+        padding: 10px 14px;
+        font-size: 13px;
+        border-bottom: 1px solid rgba($wdm-border, 0.5);
+        vertical-align: middle;
+    }
+
+    td:nth-child(2) {
+        text-align: center;
+        color: $wdm-text-muted;
+        font-size: 14px;
+    }
+
+    tr:last-child td {
+        border-bottom: none;
+    }
+
+    code {
+        background: $wdm-bg-light;
+        padding: 3px 10px;
+        border-radius: 4px;
+        font-size: 12px;
+        font-weight: 600;
+        color: $wdm-blue;
+        border: 1px solid rgba($wdm-border, 0.6);
+    }
+
+    .wdm-field-map-select {
+        min-width: 220px;
+    }
+}

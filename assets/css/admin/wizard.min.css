@@ -1,0 +1,579 @@
+/**
+ * WPRobo DocuMerge — Setup Wizard Styles (compiled)
+ *
+ * @package WPRobo_DocuMerge
+ * @since   1.0.0
+ */
+
+/* ── Reset & Base ────────────────────────────────────────────── */
+.wdm-wizard-body {
+    margin: 0;
+    padding: 0;
+    background: #f0f4fa;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #1a1a1a;
+    font-size: 14px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+.wdm-wizard-body *,
+.wdm-wizard-body *::before,
+.wdm-wizard-body *::after {
+    box-sizing: border-box;
+}
+
+/* ── Wizard Container ────────────────────────────────────────── */
+.wdm-wizard-wrap {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 40px 20px 120px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ── Header ──────────────────────────────────────────────────── */
+.wdm-wizard-header {
+    text-align: center;
+    margin-bottom: 32px;
+    width: 100%;
+}
+
+.wdm-wizard-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.wdm-wizard-logo svg {
+    flex-shrink: 0;
+}
+
+.wdm-wizard-logo-text {
+    font-size: 20px;
+    font-weight: 700;
+    color: #042157;
+    letter-spacing: -0.02em;
+}
+
+/* ── Progress Bar ────────────────────────────────────────────── */
+.wdm-wizard-progress {
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.wdm-wizard-steps-track {
+    position: relative;
+    padding: 0 20px;
+}
+
+.wdm-wizard-progress-line {
+    position: absolute;
+    top: 12px;
+    left: 60px;
+    right: 60px;
+    height: 3px;
+    background: #dde5f0;
+    border-radius: 2px;
+    z-index: 0;
+}
+
+.wdm-wizard-progress-fill {
+    height: 100%;
+    background: #166441;
+    border-radius: 2px;
+    transition: width 0.4s ease;
+    width: 0%;
+}
+
+.wdm-wizard-step-indicators {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1;
+}
+
+.wdm-wizard-step-dot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    min-width: 60px;
+}
+
+.wdm-dot-circle {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 3px solid #dde5f0;
+    background: #ffffff;
+    transition: all 0.3s ease;
+    display: block;
+}
+
+.wdm-wizard-step-dot.wdm-active .wdm-dot-circle {
+    border-color: #166441;
+    background: #166441;
+    box-shadow: 0 0 0 4px rgba(22, 100, 65, 0.15);
+}
+
+.wdm-wizard-step-dot.wdm-completed .wdm-dot-circle {
+    border-color: #166441;
+    background: #166441;
+}
+
+.wdm-dot-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.wdm-wizard-step-dot.wdm-active .wdm-dot-label {
+    color: #166441;
+}
+
+.wdm-wizard-step-dot.wdm-completed .wdm-dot-label {
+    color: #166441;
+}
+
+/* ── Step Content ────────────────────────────────────────────── */
+.wdm-wizard-content {
+    width: 100%;
+}
+
+.wdm-wizard-step {
+    display: none;
+}
+
+.wdm-wizard-step.wdm-step-active {
+    display: block;
+    animation: wdm-fade-in 0.3s ease;
+}
+
+@keyframes wdm-fade-in {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.wdm-wizard-step-inner {
+    background: #ffffff;
+    border: 1px solid #dde5f0;
+    border-radius: 10px;
+    padding: 48px 40px;
+    box-shadow: 0 2px 8px rgba(4, 33, 87, 0.08);
+    text-align: center;
+}
+
+/* ── Typography ──────────────────────────────────────────────── */
+.wdm-wizard-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #042157;
+    margin: 0 0 8px;
+    line-height: 1.3;
+}
+
+.wdm-wizard-subtitle {
+    font-size: 15px;
+    color: #6b7280;
+    margin: 0 0 32px;
+    line-height: 1.5;
+}
+
+/* ── Step 1: Welcome ─────────────────────────────────────────── */
+.wdm-wizard-illustration {
+    margin-bottom: 24px;
+}
+
+.wdm-wizard-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    max-width: 460px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.wdm-wizard-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 0;
+    font-size: 14px;
+    color: #1a1a1a;
+    line-height: 1.5;
+}
+
+.wdm-wizard-features li .dashicons {
+    color: #166441;
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+/* ── Step 2: Detection Cards ─────────────────────────────────── */
+.wdm-detect-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px;
+    border: 1px solid #dde5f0;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    text-align: left;
+    transition: all 0.2s ease;
+}
+
+.wdm-detect-card:hover {
+    border-color: #042157;
+    box-shadow: 0 2px 8px rgba(4, 33, 87, 0.08);
+}
+
+.wdm-detect-card.wdm-detect-found {
+    border-color: #166441;
+    background: #f8fdf9;
+}
+
+.wdm-detect-card.wdm-detect-none {
+    border-color: #d97706;
+    background: #fffbeb;
+}
+
+.wdm-detect-icon {
+    flex-shrink: 0;
+    font-size: 24px;
+    width: 24px;
+    height: 24px;
+    margin-top: 2px;
+}
+
+.wdm-detect-found .wdm-detect-icon {
+    color: #166441;
+}
+
+.wdm-detect-none .wdm-detect-icon {
+    color: #d97706;
+}
+
+.wdm-detect-text {
+    flex: 1;
+}
+
+.wdm-detect-text strong {
+    display: block;
+    font-size: 14px;
+    color: #1a1a1a;
+    margin-bottom: 4px;
+}
+
+.wdm-detect-text p {
+    font-size: 13px;
+    color: #6b7280;
+    margin: 0 0 12px;
+    line-height: 1.5;
+}
+
+.wdm-detect-radios {
+    margin-top: 8px;
+}
+
+/* ── Step 3: Config Sections ─────────────────────────────────── */
+.wdm-wizard-config-section {
+    text-align: left;
+    margin-bottom: 28px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid #f0f4fa;
+}
+
+.wdm-wizard-config-section:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.wdm-wizard-config-heading {
+    font-size: 14px;
+    font-weight: 700;
+    color: #042157;
+    margin: 0 0 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+/* ── Radio Buttons ───────────────────────────────────────────── */
+.wdm-wizard-radio-group,
+.wdm-wizard-checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.wdm-wizard-radio,
+.wdm-wizard-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    padding: 10px 14px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.wdm-wizard-radio:hover,
+.wdm-wizard-checkbox:hover {
+    background: #f0f4fa;
+}
+
+.wdm-wizard-radio input[type="radio"],
+.wdm-wizard-checkbox input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.wdm-radio-mark {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #dde5f0;
+    border-radius: 50%;
+    flex-shrink: 0;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.wdm-wizard-radio input[type="radio"]:checked + .wdm-radio-mark {
+    border-color: #166441;
+}
+
+.wdm-wizard-radio input[type="radio"]:checked + .wdm-radio-mark::after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #166441;
+}
+
+.wdm-wizard-radio input[type="radio"]:focus + .wdm-radio-mark {
+    box-shadow: 0 0 0 3px rgba(22, 100, 65, 0.15);
+}
+
+.wdm-checkbox-mark {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #dde5f0;
+    border-radius: 4px;
+    flex-shrink: 0;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.wdm-wizard-checkbox input[type="checkbox"]:checked + .wdm-checkbox-mark {
+    border-color: #166441;
+    background: #166441;
+}
+
+.wdm-wizard-checkbox input[type="checkbox"]:checked + .wdm-checkbox-mark::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 5px;
+    width: 6px;
+    height: 10px;
+    border: solid #ffffff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.wdm-wizard-checkbox input[type="checkbox"]:focus + .wdm-checkbox-mark {
+    box-shadow: 0 0 0 3px rgba(22, 100, 65, 0.15);
+}
+
+.wdm-radio-text,
+.wdm-checkbox-text {
+    font-size: 14px;
+    color: #1a1a1a;
+    line-height: 1.4;
+}
+
+/* ── Step 4: Done ────────────────────────────────────────────── */
+.wdm-wizard-done {
+    padding: 60px 40px;
+}
+
+.wdm-wizard-done-icon {
+    margin-bottom: 24px;
+}
+
+.wdm-wizard-done-icon svg {
+    animation: wdm-scale-in 0.5s ease;
+}
+
+@keyframes wdm-scale-in {
+    from { transform: scale(0.5); opacity: 0; }
+    to   { transform: scale(1);   opacity: 1; }
+}
+
+.wdm-wizard-done-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 32px;
+    flex-wrap: wrap;
+}
+
+/* ── Buttons ─────────────────────────────────────────────────── */
+.wdm-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 2px solid transparent;
+    line-height: 1.4;
+}
+
+.wdm-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(4, 33, 87, 0.15);
+}
+
+.wdm-btn-primary {
+    background: #042157;
+    color: #ffffff;
+    border-color: #042157;
+}
+
+.wdm-btn-primary:hover {
+    background: #0a3d8f;
+    border-color: #0a3d8f;
+    color: #ffffff;
+}
+
+.wdm-btn-primary .dashicons {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+}
+
+.wdm-btn-primary.wdm-loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.wdm-btn-secondary {
+    background: transparent;
+    color: #166441;
+    border-color: #166441;
+}
+
+.wdm-btn-secondary:hover {
+    background: #166441;
+    color: #ffffff;
+}
+
+/* ── Footer ──────────────────────────────────────────────────── */
+.wdm-wizard-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    border-top: 1px solid #dde5f0;
+    padding: 16px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.wdm-wizard-skip {
+    color: #6b7280;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.wdm-wizard-skip:hover {
+    color: #042157;
+}
+
+/* ── Error Message ───────────────────────────────────────────── */
+.wdm-wizard-error {
+    background: #fef2f2;
+    border: 1px solid #dc2626;
+    color: #dc2626;
+    padding: 12px 16px;
+    border-radius: 6px;
+    font-size: 13px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-align: left;
+}
+
+.wdm-wizard-error .dashicons {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 600px) {
+    .wdm-wizard-wrap {
+        padding: 24px 16px 100px;
+    }
+
+    .wdm-wizard-step-inner {
+        padding: 32px 20px;
+    }
+
+    .wdm-wizard-title {
+        font-size: 20px;
+    }
+
+    .wdm-wizard-done-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .wdm-btn {
+        justify-content: center;
+    }
+
+    .wdm-dot-label {
+        font-size: 10px;
+    }
+
+    .wdm-wizard-progress-line {
+        left: 40px;
+        right: 40px;
+    }
+
+    .wdm-wizard-step-dot {
+        min-width: 48px;
+    }
+
+    .wdm-wizard-footer {
+        padding: 12px 20px;
+    }
+}

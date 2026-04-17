@@ -1,0 +1,75 @@
+/**
+ * WPRobo DocuMerge — Block Editor Styles
+ *
+ * @package WPRobo_DocuMerge
+ * @since   1.4.0
+ */
+
+/* Placeholder */
+.wp-block-wprobo-documerge-form-embed .wdm-block-placeholder {
+    min-height: 140px;
+    border: 2px dashed #dde5f0;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #f0f4fa, #f8fafc);
+}
+
+.wp-block-wprobo-documerge-form-embed .components-placeholder__label {
+    color: #042157;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.wp-block-wprobo-documerge-form-embed .components-placeholder p {
+    color: #6b7280;
+    font-size: 13px;
+}
+
+.wp-block-wprobo-documerge-form-embed .components-placeholder .components-select-control {
+    min-width: 300px;
+}
+
+/* Preview wrapper */
+.wp-block-wprobo-documerge-form-embed .wdm-block-preview-wrap {
+    border: 1px solid #dde5f0;
+    border-radius: 10px;
+    padding: 20px;
+    background: #fff;
+    position: relative;
+}
+
+/* Non-interactive form preview — ONLY inside the preview wrap, not the placeholder */
+.wp-block-wprobo-documerge-form-embed .wdm-block-preview-wrap .wdm-form-wrap {
+    pointer-events: none;
+    user-select: none;
+}
+
+.wp-block-wprobo-documerge-form-embed .wdm-block-preview-wrap input,
+.wp-block-wprobo-documerge-form-embed .wdm-block-preview-wrap select,
+.wp-block-wprobo-documerge-form-embed .wdm-block-preview-wrap textarea,
+.wp-block-wprobo-documerge-form-embed .wdm-block-preview-wrap button,
+.wp-block-wprobo-documerge-form-embed .wdm-block-preview-wrap a,
+.wp-block-wprobo-documerge-form-embed .wdm-block-preview-wrap label {
+    pointer-events: none !important;
+    cursor: default !important;
+}
+
+/* Selected state */
+.wp-block-wprobo-documerge-form-embed.is-selected .wdm-block-preview-wrap,
+.wp-block-wprobo-documerge-form-embed:focus .wdm-block-preview-wrap {
+    border-color: #042157;
+    box-shadow: 0 0 0 1px #042157;
+}
+
+/* Inspector form info */
+.wdm-block-form-info {
+    background: #f0f4fa;
+    padding: 10px 12px;
+    border-radius: 6px;
+    margin-top: 8px;
+}
+
+.wdm-block-form-info p {
+    font-size: 12px;
+    margin: 2px 0;
+    color: #1a1a1a;
+}

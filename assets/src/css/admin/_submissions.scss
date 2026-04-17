@@ -1,0 +1,484 @@
+/**
+ * WPRobo DocuMerge — Submissions Page Styles
+ *
+ * @package WPRobo_DocuMerge
+ * @since   1.0.0
+ */
+
+.wdm-filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: flex-end;
+    margin-bottom: 20px;
+    padding: 16px 20px;
+    background: $wdm-white;
+    border: 1px solid $wdm-border;
+    border-radius: $wdm-radius-lg;
+    box-shadow: $wdm-shadow;
+
+    select,
+    input[type="text"] {
+        padding: 8px 12px;
+        border: 1px solid $wdm-border;
+        border-radius: $wdm-radius;
+        font-size: 13px;
+        color: $wdm-text;
+        background: $wdm-white;
+        min-width: 160px;
+        transition: $wdm-transition;
+
+        &:focus {
+            outline: none;
+            border-color: $wdm-blue;
+            box-shadow: 0 0 0 3px rgba(4, 33, 87, 0.1);
+        }
+    }
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
+.wdm-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding: 16px 20px;
+    background: $wdm-white;
+    border: 1px solid $wdm-border;
+    border-radius: $wdm-radius-lg;
+    box-shadow: $wdm-shadow;
+}
+
+.wdm-pagination-info {
+    font-size: 13px;
+    color: $wdm-text-muted;
+    font-weight: 500;
+}
+
+.wdm-pagination-buttons {
+    display: flex;
+    gap: 4px;
+}
+
+.wdm-pagination-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    height: 36px;
+    padding: 0 12px;
+    border: 1px solid $wdm-border;
+    border-radius: $wdm-radius;
+    background: $wdm-white;
+    color: $wdm-text;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: $wdm-transition;
+
+    &:hover {
+        border-color: $wdm-blue;
+        color: $wdm-blue;
+        background: rgba(4, 33, 87, 0.03);
+    }
+
+    &.wdm-active {
+        background: $wdm-blue;
+        color: $wdm-white;
+        border-color: $wdm-blue;
+        box-shadow: 0 2px 4px rgba(4, 33, 87, 0.2);
+    }
+
+    &:disabled {
+        opacity: 0.35;
+        cursor: not-allowed;
+        &:hover { background: $wdm-white; color: $wdm-text; border-color: $wdm-border; }
+    }
+
+    .dashicons {
+        font-size: 16px;
+        width: 16px;
+        height: 16px;
+    }
+}
+
+.wdm-bulk-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-top: 16px;
+    padding: 0 4px;
+}
+
+.wdm-doc-download {
+    display: inline-block;
+    padding: 4px 10px;
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: 4px;
+    text-decoration: none;
+    margin-right: 4px;
+}
+
+.wdm-col-check {
+    width: 40px;
+}
+
+/* ── WP_List_Table Overrides ───────────────────────────────── */
+.wdm-list-table-wrap {
+    background: $wdm-white;
+    border: 1px solid $wdm-border;
+    border-radius: 0 0 $wdm-radius-lg $wdm-radius-lg;
+    padding: 20px 24px 24px;
+    box-shadow: $wdm-shadow;
+
+    // Search box styling.
+    .search-box {
+        margin-bottom: 16px;
+
+        input[type="search"] {
+            padding: 8px 12px;
+            border: 1px solid $wdm-border;
+            border-radius: $wdm-radius;
+            font-size: 13px;
+            min-width: 260px;
+            transition: $wdm-transition;
+
+            &:focus {
+                outline: none;
+                border-color: $wdm-blue;
+                box-shadow: 0 0 0 3px rgba(4, 33, 87, 0.1);
+            }
+        }
+
+        .button {
+            border-radius: $wdm-radius;
+        }
+    }
+
+    // Custom filter dropdowns.
+    .wdm-list-table-filters {
+        margin-bottom: 8px;
+
+        select {
+            padding: 6px 10px;
+            border: 1px solid $wdm-border;
+            border-radius: $wdm-radius;
+            font-size: 13px;
+            min-width: 140px;
+        }
+
+        .button {
+            border-radius: $wdm-radius;
+        }
+
+        .wdm-export-csv-btn {
+            margin-left: 8px;
+            border-radius: $wdm-radius;
+        }
+    }
+
+    // Table itself.
+    .wp-list-table {
+        border: 1px solid $wdm-border;
+        border-radius: $wdm-radius;
+        overflow: hidden;
+
+        thead th,
+        tfoot th {
+            background: $wdm-bg-light;
+            color: $wdm-blue;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            padding: 12px 14px;
+        }
+
+        thead th a {
+            color: $wdm-blue;
+        }
+
+        td {
+            padding: 12px 14px;
+            font-size: 13px;
+            color: $wdm-text;
+            vertical-align: middle;
+        }
+
+        tbody tr {
+            transition: background-color 0.15s ease;
+        }
+
+        tbody tr:nth-child(even) {
+            background: rgba($wdm-bg-light, 0.35);
+        }
+
+        tbody tr:hover {
+            background: rgba($wdm-blue, 0.03);
+        }
+
+        // Checkbox column.
+        .check-column {
+            width: 36px;
+            padding: 10px 8px;
+        }
+    }
+
+    // Tablenav (pagination, bulk actions).
+    .tablenav {
+        margin: 12px 0 0;
+
+        .tablenav-pages {
+            .pagination-links {
+                .button {
+                    border-radius: $wdm-radius;
+                    min-width: 32px;
+                    height: 32px;
+                }
+
+                .tablenav-paging-text {
+                    font-size: 13px;
+                    color: $wdm-text-muted;
+                }
+            }
+
+            .displaying-num {
+                font-size: 13px;
+                color: $wdm-text-muted;
+                font-weight: 500;
+            }
+        }
+
+        .actions select {
+            border-radius: $wdm-radius;
+        }
+
+        .actions .button {
+            border-radius: $wdm-radius;
+        }
+    }
+
+    // Screen options per-page label.
+    .screen-per-page {
+        border-radius: $wdm-radius;
+    }
+}
+
+/* ── Submission Detail Panel ────────────────────────────────── */
+.wdm-submission-panel {
+    position: fixed;
+    top: 0;
+    right: -460px;
+    width: 440px;
+    height: 100vh;
+    background: $wdm-white;
+    z-index: 100010;
+    display: flex;
+    flex-direction: column;
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+    transition: right 0.3s ease;
+
+    &.wdm-panel-open {
+        right: 0;
+    }
+
+    @media (max-width: 600px) {
+        width: 100%;
+        right: -100%;
+    }
+}
+
+.wdm-detail-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    border-bottom: 1px solid $wdm-border;
+    flex-shrink: 0;
+}
+
+.wdm-detail-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: $wdm-blue;
+    margin: 0;
+}
+
+.wdm-detail-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    color: $wdm-text-muted;
+    transition: $wdm-transition;
+
+    &:hover { color: $wdm-error; }
+    .dashicons { font-size: 24px; width: 24px; height: 24px; }
+}
+
+.wdm-detail-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 24px;
+}
+
+.wdm-detail-section {
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid $wdm-border;
+
+    &:last-child {
+        border-bottom: none;
+    }
+
+    h4 {
+        font-size: 13px;
+        font-weight: 700;
+        color: #042157;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        margin: 0 0 12px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid #f0f4fa;
+    }
+}
+
+.wdm-detail-meta,
+.wdm-detail-fields,
+.wdm-detail-docs {
+    font-size: 13px;
+    color: $wdm-text;
+    line-height: 1.8;
+
+    strong {
+        color: $wdm-text;
+    }
+
+    td {
+        padding: 6px 12px 6px 0;
+        font-size: 13px;
+        vertical-align: top;
+        border-bottom: 1px solid #f8fafc;
+    }
+
+    td:first-child {
+        width: 120px;
+        color: $wdm-text-muted;
+    }
+}
+
+.wdm-detail-docs {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.wdm-save-note {
+    margin-top: 8px;
+}
+
+.wdm-detail-delete {
+    margin-top: 16px;
+}
+
+/* ── Single Submission View ────────────────────────────────── */
+.wdm-submission-view {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 24px;
+    margin-top: 0;
+
+    @media (max-width: 900px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.wdm-submission-main {
+    min-width: 0;
+
+    .wdm-settings-card {
+        margin-bottom: 20px;
+    }
+}
+
+.wdm-submission-sidebar {
+    .wdm-settings-card {
+        margin-bottom: 16px;
+    }
+}
+
+.wdm-submission-fields-table {
+    width: 100%;
+    border-collapse: collapse;
+
+    tr {
+        border-bottom: 1px solid rgba($wdm-border, 0.5);
+    }
+
+    tr:last-child {
+        border-bottom: none;
+    }
+
+    td {
+        padding: 12px 8px;
+        font-size: 13px;
+        vertical-align: top;
+    }
+
+    .wdm-field-label-col {
+        width: 160px;
+        font-weight: 700;
+        color: $wdm-text;
+    }
+
+    .wdm-field-value-col {
+        color: $wdm-text;
+    }
+}
+
+.wdm-json-value {
+    font-size: 12px;
+    font-family: 'SFMono-Regular', Consolas, monospace;
+    background: $wdm-bg-light;
+    padding: 8px 12px;
+    border-radius: $wdm-radius;
+    white-space: pre-wrap;
+    word-break: break-word;
+    margin: 0;
+}
+
+.wdm-meta-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.wdm-meta-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba($wdm-border, 0.4);
+    font-size: 13px;
+
+    &:last-child {
+        border-bottom: none;
+    }
+}
+
+.wdm-meta-label {
+    color: $wdm-text-muted;
+    font-weight: 500;
+    flex-shrink: 0;
+    margin-right: 12px;
+}
+
+.wdm-meta-value {
+    color: $wdm-text;
+    text-align: right;
+    word-break: break-word;
+}
