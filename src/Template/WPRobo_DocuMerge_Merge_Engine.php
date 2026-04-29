@@ -199,9 +199,10 @@ class WPRobo_DocuMerge_Merge_Engine {
 
 		$xml = $property->getValue( $template_processor );
 
-		// Match tags with pipes: ${field|modifier} or ${field|format:pattern}
-		// PHPWord stores variables as ${var} in the XML.
-		$pattern = '/\$\{([a-zA-Z0-9_]+)\|([^}]+)\}/';
+		// Match tags with pipes: {field|modifier} or {field|format:pattern}
+		// DocuMerge templates use {var} syntax (PHPWord's macro chars are
+		// reconfigured to '{' / '}' in the Docx Processor).
+		$pattern = '/\{([a-zA-Z0-9_]+)\|([^}]+)\}/';
 
 		$xml = preg_replace_callback(
 			$pattern,

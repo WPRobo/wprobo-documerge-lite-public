@@ -220,9 +220,9 @@ class WPRobo_DocuMerge_Submissions_List_Table extends \WP_List_Table {
 			"SELECT id, title FROM {$wpdb->prefix}wprdm_forms ORDER BY title ASC"
 		);
 
-		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Admin list-table filter read; cap-checked, sanitized, idempotent (no state change).
 		$current_form = isset( $_GET['form_id'] ) ? absint( $_GET['form_id'] ) : 0;
-		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Admin list-table filter read; cap-checked, sanitized, idempotent (no state change).
 		$current_status = isset( $_GET['status'] ) ? sanitize_key( wp_unslash( $_GET['status'] ) ) : '';
 
 		echo '<div class="alignleft actions wdm-list-table-filters">';
@@ -305,11 +305,11 @@ class WPRobo_DocuMerge_Submissions_List_Table extends \WP_List_Table {
 		$where_clauses = array();
 		$where_values  = array();
 
-		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Admin list-table filter read; cap-checked, sanitized, idempotent (no state change).
 		$form_id = isset( $_GET['form_id'] ) ? absint( $_GET['form_id'] ) : 0;
-		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Admin list-table filter read; cap-checked, sanitized, idempotent (no state change).
 		$status = isset( $_GET['status'] ) ? sanitize_key( wp_unslash( $_GET['status'] ) ) : '';
-		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Admin list-table filter read; cap-checked, sanitized, idempotent (no state change).
 		$search = isset( $_GET['s'] ) ? sanitize_text_field( wp_unslash( $_GET['s'] ) ) : '';
 
 		if ( $form_id > 0 ) {
@@ -356,13 +356,13 @@ class WPRobo_DocuMerge_Submissions_List_Table extends \WP_List_Table {
 			'status'          => array( 's', 'status' ),
 		);
 
-		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Admin list-table filter read; cap-checked, sanitized, idempotent (no state change).
 		$orderby_raw = isset( $_GET['orderby'] ) ? sanitize_key( wp_unslash( $_GET['orderby'] ) ) : '';
 		$orderby_key = isset( $orderby_whitelist[ $orderby_raw ] ) ? $orderby_raw : 'created_at';
 		list( $orderby_alias, $orderby_column ) = $orderby_whitelist[ $orderby_key ];
 
 		// ORDER direction — strict whitelist.
-		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Admin list-table filter read; cap-checked, sanitized, idempotent (no state change).
 		$order_raw = isset( $_GET['order'] ) ? sanitize_key( wp_unslash( $_GET['order'] ) ) : '';
 		$order     = ( 'asc' === strtolower( $order_raw ) ) ? 'ASC' : 'DESC';
 

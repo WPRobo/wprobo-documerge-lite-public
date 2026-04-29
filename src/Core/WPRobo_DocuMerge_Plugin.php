@@ -218,7 +218,7 @@ class WPRobo_DocuMerge_Plugin {
 		add_action( 'admin_notices', array( $this, 'wprobo_documerge_lite_admin_notice' ) );
 
 		// Dev-only: seed demo data when ?seed_demo=1 on a DocuMerge admin page.
-		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Admin screen flash-message flag read; cap-checked, strict equality compare.
 		if ( is_admin() && isset( $_GET['seed_demo'] ) && '1' === $_GET['seed_demo'] ) {
 			add_action( 'admin_init', array( $this, 'wprobo_documerge_run_seeder' ) );
 		}

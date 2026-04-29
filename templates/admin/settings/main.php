@@ -113,14 +113,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<div class="wdm-settings-card-body">
 					<div class="wdm-field-group">
 						<label><?php esc_html_e( 'Form Mode', 'wprobo-documerge-lite' ); ?></label>
-						<?php $mode = get_option( 'wprobo_documerge_form_mode', 'standalone' ); ?>
+						<?php $wprobo_documerge_form_mode_value = get_option( 'wprobo_documerge_form_mode', 'standalone' ); ?>
 						<div class="wdm-radio-group">
-							<label class="wdm-radio-label"><input type="radio" name="wprobo_documerge_form_mode" value="standalone" <?php checked( $mode, 'standalone' ); ?>> <?php esc_html_e( 'Standalone (built-in form builder)', 'wprobo-documerge-lite' ); ?></label>
+							<label class="wdm-radio-label"><input type="radio" name="wprobo_documerge_form_mode" value="standalone" <?php checked( $wprobo_documerge_form_mode_value, 'standalone' ); ?>> <?php esc_html_e( 'Standalone (built-in form builder)', 'wprobo-documerge-lite' ); ?></label>
 							<label class="wdm-radio-label wdm-pro-disabled-toggle"><input type="radio" disabled="disabled"> <?php esc_html_e( 'Integrated (WPForms / CF7 / Gravity Forms etc.)', 'wprobo-documerge-lite' ); ?> <?php echo wp_kses_post( \WPRobo\DocuMerge\Admin\WPRobo_DocuMerge_Pro_Upsell::wprobo_documerge_render_badge() ); ?></label>
 						</div>
 					</div>
 
-					<div class="wdm-field-group wdm-integration-field-group"<?php echo ( 'integrated' !== $mode ) ? ' style="display:none;"' : ''; ?>>
+					<div class="wdm-field-group wdm-integration-field-group"<?php echo ( 'integrated' !== $wprobo_documerge_form_mode_value ) ? ' style="display:none;"' : ''; ?>>
 						<label for="wdm-integration"><?php esc_html_e( 'Active Integration', 'wprobo-documerge-lite' ); ?></label>
 						<?php
 						$integ             = get_option( 'wprobo_documerge_active_integration', '' );
@@ -151,9 +151,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 						?>
 						<select id="wdm-integration" name="wprobo_documerge_active_integration" class="wdm-select">
 							<option value=""><?php esc_html_e( '— Select —', 'wprobo-documerge-lite' ); ?></option>
-							<?php foreach ( $available_plugins as $slug => $plugin ) : ?>
-								<?php if ( $plugin['active'] ) : ?>
-									<option value="<?php echo esc_attr( $slug ); ?>" <?php selected( $integ, $slug ); ?>><?php echo esc_html( $plugin['label'] ); ?></option>
+							<?php foreach ( $available_plugins as $slug => $wprobo_documerge_plugin_info ) : ?>
+								<?php if ( $wprobo_documerge_plugin_info['active'] ) : ?>
+									<option value="<?php echo esc_attr( $slug ); ?>" <?php selected( $integ, $slug ); ?>><?php echo esc_html( $wprobo_documerge_plugin_info['label'] ); ?></option>
 								<?php endif; ?>
 							<?php endforeach; ?>
 						</select>

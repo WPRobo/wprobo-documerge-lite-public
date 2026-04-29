@@ -323,7 +323,7 @@ class WPRobo_DocuMerge_Forms_List_Table extends \WP_List_Table {
 		$templates_table = $wpdb->prefix . 'wprdm_templates';
 
 		// Search.
-		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Admin list-table filter read; cap-checked, sanitized, idempotent (no state change).
 		$search = isset( $_GET['s'] ) ? sanitize_text_field( wp_unslash( $_GET['s'] ) ) : '';
 
 		// Search fragment — prepared with %s placeholder, value bound below.
@@ -350,12 +350,12 @@ class WPRobo_DocuMerge_Forms_List_Table extends \WP_List_Table {
 
 		// ORDER BY column — strict whitelist. Value is ONLY ever one of these
 		// literals, never user input after this point.
-		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Admin list-table filter read; cap-checked, sanitized, idempotent (no state change).
 		$orderby_raw = isset( $_GET['orderby'] ) ? sanitize_key( wp_unslash( $_GET['orderby'] ) ) : '';
 		$orderby     = in_array( $orderby_raw, array( 'id', 'title' ), true ) ? $orderby_raw : 'id';
 
 		// ORDER direction — strict whitelist. Value is ONLY ever 'ASC' or 'DESC'.
-		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Admin list-table filter read; cap-checked, sanitized, idempotent (no state change).
 		$order_raw = isset( $_GET['order'] ) ? sanitize_key( wp_unslash( $_GET['order'] ) ) : '';
 		$order     = ( 'asc' === strtolower( $order_raw ) ) ? 'ASC' : 'DESC';
 

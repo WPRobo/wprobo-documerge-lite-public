@@ -1,10 +1,10 @@
 === WPRobo DocuMerge Lite ===
-Contributors: alishan, wprobo
+Contributors: alishanvr, wprobo
 Tags: document automation, pdf generator, form to pdf, document merge, word template
 Requires at least: 6.2
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -106,7 +106,7 @@ Alternatively, run `bash deploy.sh` from the repository root to execute all of t
 
 == Installation ==
 
-1. Upload the `wprobo-documerge` folder to `/wp-content/plugins/` or install directly from the WordPress plugin directory
+1. Upload the `wprobo-documerge-lite` folder to `/wp-content/plugins/` or install directly from the WordPress plugin directory
 2. Activate the plugin through the Plugins menu in WordPress
 3. Follow the setup wizard that appears on first activation
 4. Upload your first DOCX template via DocuMerge → Templates
@@ -170,6 +170,10 @@ Yes. The frontend form output uses its own namespaced CSS classes that do not co
 
 == Changelog ==
 
+= 1.0.1 =
+* Fix: merge tags in `{tag}` format were not detected when uploading a DOCX template (scanner returned an empty list).
+* Fix: tag replacement during document generation now correctly substitutes `{tag}` placeholders.
+
 = 1.0.0 =
 * Initial release
 * Setup wizard with guided configuration
@@ -185,6 +189,9 @@ Yes. The frontend form output uses its own namespaced CSS classes that do not co
 * Full translation support with .pot file
 
 == Upgrade Notice ==
+
+= 1.0.1 =
+Important fix: template merge-tag detection was broken in 1.0.0. Update to 1.0.1 to restore template uploads.
 
 = 1.0.0 =
 Initial release of WPRobo DocuMerge Lite. Upload DOCX templates, build forms, generate documents automatically.

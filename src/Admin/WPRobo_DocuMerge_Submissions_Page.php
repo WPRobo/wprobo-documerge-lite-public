@@ -93,7 +93,7 @@ class WPRobo_DocuMerge_Submissions_Page {
 		}
 
 		// Single submission view.
-		$view_id = isset( $_GET['view'] ) ? absint( $_GET['view'] ) : 0; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		$view_id = isset( $_GET['view'] ) ? absint( $_GET['view'] ) : 0; // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Admin page view selector; cap-checked, sanitized via absint.
 		if ( $view_id > 0 ) {
 			$this->wprobo_documerge_render_single_submission( $view_id );
 			return;
@@ -491,9 +491,9 @@ class WPRobo_DocuMerge_Submissions_Page {
 			return;
 		}
 
-		$raw_ids = isset( $_POST['ids'] ) ? wp_unslash( (array) $_POST['ids'] ) : array();
-		$ids     = array_map( 'absint', $raw_ids );
-		$ids     = array_filter( $ids );
+		$ids = isset( $_POST['ids'] )
+			? array_filter( array_map( 'absint', (array) wp_unslash( $_POST['ids'] ) ) )
+			: array();
 
 		if ( empty( $ids ) ) {
 			wp_send_json_error( array( 'message' => __( 'No valid submission IDs provided.', 'wprobo-documerge-lite' ) ) );

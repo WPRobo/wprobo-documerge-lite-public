@@ -64,9 +64,9 @@ $mode_labels = array(
 		<table class="wdm-table">
 			<thead>
 				<?php
-                // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+                // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Admin list-table sort-column read; cap-checked, sanitized, idempotent.
 				$current_orderby = isset( $_GET['orderby'] ) ? sanitize_key( $_GET['orderby'] ) : 'id';
-                // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+                // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Admin list-table sort-direction read; cap-checked, strict whitelist to 'asc'/'desc'.
 				$current_order = isset( $_GET['order'] ) && 'asc' === strtolower( sanitize_key( $_GET['order'] ) ) ? 'asc' : 'desc';
 				$base_url      = admin_url( 'admin.php?page=wprobo-documerge-forms' );
 				?>

@@ -92,9 +92,9 @@ $primary_action = array(
 						<div class="wdm-template-tag-pills">
 							<?php
 							$tags_to_show = array_slice( $template->tags_array, 0, 5 );
-							foreach ( $tags_to_show as $tag ) :
+							foreach ( $tags_to_show as $wprobo_documerge_merge_tag ) :
 								?>
-								<code class="wdm-tag-pill"><?php echo esc_html( $tag ); ?></code>
+								<code class="wdm-tag-pill"><?php echo esc_html( $wprobo_documerge_merge_tag ); ?></code>
 							<?php endforeach; ?>
 							<?php if ( $tag_count > 5 ) : ?>
 								<button type="button" class="wdm-tag-more" data-tags="<?php echo esc_attr( wp_json_encode( $template->tags_array ) ); ?>">

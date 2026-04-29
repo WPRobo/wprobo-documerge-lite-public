@@ -68,7 +68,9 @@ class WPRobo_DocuMerge_Installer {
 	 * @return string Absolute path ending with a trailing slash.
 	 */
 	public static function wprobo_documerge_get_docs_dir() {
-		return self::wprobo_documerge_get_base_dir() . 'docs/';
+		$dir = self::wprobo_documerge_get_base_dir() . 'docs/';
+		self::wprobo_documerge_ensure_protected_dir( $dir );
+		return $dir;
 	}
 
 	/**
@@ -78,7 +80,9 @@ class WPRobo_DocuMerge_Installer {
 	 * @return string Absolute path ending with a trailing slash.
 	 */
 	public static function wprobo_documerge_get_temp_dir() {
-		return self::wprobo_documerge_get_base_dir() . 'temp/';
+		$dir = self::wprobo_documerge_get_base_dir() . 'temp/';
+		self::wprobo_documerge_ensure_protected_dir( $dir );
+		return $dir;
 	}
 
 	/**
@@ -88,7 +92,53 @@ class WPRobo_DocuMerge_Installer {
 	 * @return string Absolute path ending with a trailing slash.
 	 */
 	public static function wprobo_documerge_get_logs_dir() {
-		return self::wprobo_documerge_get_base_dir() . 'logs/';
+		$dir = self::wprobo_documerge_get_base_dir() . 'logs/';
+		self::wprobo_documerge_ensure_protected_dir( $dir );
+		return $dir;
+	}
+
+	/**
+	 * Ensure the given upload subdirectory exists, protected by .htaccess and
+	 * an index.php stub. Memoized per-request so it only runs once per path.
+	 *
+	 * Called lazily by the directory getters so that a mid-upgrade install
+	 * (where the activation hook did not fire) still gets a usable directory
+	 * the first time any code asks for it.
+	 *
+	 * @since 1.0.0
+	 * @param string $dir Absolute directory path (with trailing slash).
+	 */
+	private static function wprobo_documerge_ensure_protected_dir( $dir ) {
+		static $ensured = array();
+		if ( isset( $ensured[ $dir ] ) ) {
+			return;
+		}
+		$ensured[ $dir ] = true;
+
+		if ( ! is_dir( $dir ) ) {
+			wp_mkdir_p( $dir );
+		}
+
+		global $wp_filesystem;
+		if ( empty( $wp_filesystem ) ) {
+			if ( ! function_exists( 'WP_Filesystem' ) ) {
+				require_once ABSPATH . '/wp-admin/includes/file.php';
+			}
+			WP_Filesystem();
+		}
+		if ( empty( $wp_filesystem ) ) {
+			return;
+		}
+
+		$htaccess = $dir . '.htaccess';
+		if ( ! $wp_filesystem->exists( $htaccess ) ) {
+			$wp_filesystem->put_contents( $htaccess, "Options -Indexes\ndeny from all\n", FS_CHMOD_FILE );
+		}
+
+		$index = $dir . 'index.php';
+		if ( ! $wp_filesystem->exists( $index ) ) {
+			$wp_filesystem->put_contents( $index, "<?php\n// Silence is golden.\n", FS_CHMOD_FILE );
+		}
 	}
 
 	/**

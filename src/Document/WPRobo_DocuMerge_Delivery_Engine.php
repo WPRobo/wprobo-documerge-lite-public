@@ -556,7 +556,7 @@ class WPRobo_DocuMerge_Delivery_Engine {
 
 		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Nonce already verified above.
 		$submission_id = isset( $_GET['submission_id'] ) ? absint( wp_unslash( $_GET['submission_id'] ) ) : 0;
-		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- AJAX handler; nonce verified via check_ajax_referer() at top of method.
 		$format = isset( $_GET['format'] ) ? sanitize_key( wp_unslash( $_GET['format'] ) ) : 'pdf';
 
 		if ( ! $submission_id ) {

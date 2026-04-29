@@ -237,16 +237,16 @@ $primary_action = array(
 								</td>
 								<td>
 									<?php
-									$status       = $submission->status;
-									$status_map   = array(
+									$wprobo_documerge_status       = $submission->status;
+									$wprobo_documerge_status_map   = array(
 										'completed'       => 'success',
 										'processing'      => 'info',
 										'error'           => 'error',
 										'pending_payment' => 'pending',
 										'payment_failed'  => 'error',
 									);
-									$badge_class  = isset( $status_map[ $status ] ) ? $status_map[ $status ] : 'info';
-									$status_label = str_replace( '_', ' ', $status );
+									$badge_class                   = isset( $wprobo_documerge_status_map[ $wprobo_documerge_status ] ) ? $wprobo_documerge_status_map[ $wprobo_documerge_status ] : 'info';
+									$status_label                  = str_replace( '_', ' ', $wprobo_documerge_status );
 									?>
 									<span class="wdm-badge wdm-badge-<?php echo esc_attr( $badge_class ); ?>">
 										<?php echo esc_html( ucwords( $status_label ) ); ?>

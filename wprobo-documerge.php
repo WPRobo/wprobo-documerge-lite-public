@@ -11,7 +11,7 @@
  * Plugin Name:       WPRobo DocuMerge Lite
  * Plugin URI:        https://wprobo.com/plugins/wprobo-documerge/
  * Description:       Automate document generation from form submissions. Upload Word/DOCX templates, collect data via forms, and deliver personalised documents automatically. <a href="https://wprobo.com/plugins/wprobo-documerge/?utm_source=lite&utm_medium=plugin&utm_campaign=upgrade">Upgrade to Pro</a> for signature fields, Stripe payments, conditional logic, and more.
- * Version:           1.0.0
+ * Version:           1.0.1
  * Requires at least: 6.2
  * Tested up to:      6.9
  * Requires PHP:      7.4
@@ -89,7 +89,7 @@ if ( ! defined( 'WPROBO_DOCUMERGE_LITE' ) ) {
 
 // All constants guarded to prevent collisions during Lite/Pro switch.
 if ( ! defined( 'WPROBO_DOCUMERGE_VERSION' ) ) {
-	define( 'WPROBO_DOCUMERGE_VERSION', '1.0.0' );
+	define( 'WPROBO_DOCUMERGE_VERSION', '1.0.1' );
 }
 if ( ! defined( 'WPROBO_DOCUMERGE_DB_VERSION' ) ) {
 	define( 'WPROBO_DOCUMERGE_DB_VERSION', '1.0.0' );

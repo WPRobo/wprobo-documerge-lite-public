@@ -69,6 +69,8 @@ class WPRobo_DocuMerge_Template_Scanner {
 
 		try {
 			$processor = new TemplateProcessor( $file_path );
+			// DocuMerge merge tags use {tag} syntax, not PHPWord's default ${tag}.
+			$processor->setMacroChars( '{', '}' );
 			$variables = $processor->getVariables();
 		} catch ( \Exception $e ) {
 			return new WP_Error(
@@ -81,8 +83,8 @@ class WPRobo_DocuMerge_Template_Scanner {
 			);
 		}
 
-		if ( ! is_array( $variables ) || empty( $variables ) ) {
-			return array();
+		if ( ! is_array( $variables ) ) {
+			$variables = array();
 		}
 
 		// Also scan the raw XML for non-standard tags that PHPWord

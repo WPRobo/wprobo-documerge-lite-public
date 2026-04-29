@@ -70,7 +70,7 @@ $form_multistep = isset( $form->multistep_enabled ) ? absint( $form->multistep_e
 	<input type="hidden" id="wdm-form-integration" value="<?php echo esc_attr( $form_integration ); ?>">
 
 	<div id="wdm-notices">
-		<?php if ( isset( $_GET['saved'] ) && '1' === $_GET['saved'] ) : // phpcs:ignore WordPress.Security.NonceVerification.Recommended ?>
+		<?php if ( isset( $_GET['saved'] ) && '1' === $_GET['saved'] ) : // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Post-save flash-message flag; admin-only page, strict equality compare, no state change. ?>
 			<div class="wdm-notice wdm-notice-success" role="alert">
 				<span class="wdm-notice-icon dashicons dashicons-yes-alt"></span>
 				<span class="wdm-notice-text"><?php esc_html_e( 'Form saved successfully.', 'wprobo-documerge-lite' ); ?></span>
@@ -350,14 +350,14 @@ $form_multistep = isset( $form->multistep_enabled ) ? absint( $form->multistep_e
 									<tbody>
 										<?php
 										$system_tags = array( 'current_date', 'current_time', 'site_name' );
-										foreach ( $int_merge_tags as $tag ) :
-											if ( in_array( $tag, $system_tags, true ) ) {
+										foreach ( $int_merge_tags as $wprobo_documerge_merge_tag ) :
+											if ( in_array( $wprobo_documerge_merge_tag, $system_tags, true ) ) {
 												continue;
 											}
-											$mapped_to = isset( $field_map[ $tag ] ) ? $field_map[ $tag ] : '';
+											$mapped_to = isset( $field_map[ $wprobo_documerge_merge_tag ] ) ? $field_map[ $wprobo_documerge_merge_tag ] : '';
 											?>
 											<tr class="wdm-field-map-row">
-												<td><code>{<?php echo esc_html( $tag ); ?>}</code></td>
+												<td><code>{<?php echo esc_html( $wprobo_documerge_merge_tag ); ?>}</code></td>
 												<td>&rarr;</td>
 												<td>
 													<select class="wdm-field-map-select wdm-select" data-merge-tag="<?php echo esc_attr( $tag ); ?>">

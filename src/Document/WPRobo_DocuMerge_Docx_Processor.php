@@ -114,6 +114,9 @@ class WPRobo_DocuMerge_Docx_Processor {
 			// Instantiate PHPWord TemplateProcessor.
 			$processor = new TemplateProcessor( $template_path );
 
+			// DocuMerge merge tags use {tag} syntax, not PHPWord's default ${tag}.
+			$processor->setMacroChars( '{', '}' );
+
 			// Instantiate the merge engine and run the full pipeline.
 			// Pipeline order: pipes -> conditionals -> repeaters -> images -> tags.
 			$merge_engine = new WPRobo_DocuMerge_Merge_Engine();

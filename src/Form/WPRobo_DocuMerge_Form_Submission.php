@@ -209,7 +209,7 @@ class WPRobo_DocuMerge_Form_Submission {
 		$limit_email_field = isset( $form_settings['limit_email_field'] ) ? sanitize_key( $form_settings['limit_email_field'] ) : '';
 
 		if ( $limit_per_email > 0 && ! empty( $limit_email_field ) ) {
-			$submitted_email = isset( $_POST[ $limit_email_field ] ) ? sanitize_email( wp_unslash( $_POST[ $limit_email_field ] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Missing
+			$submitted_email = isset( $_POST[ $limit_email_field ] ) ? sanitize_email( wp_unslash( $_POST[ $limit_email_field ] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Missing -- Nonce verified at top of this AJAX handler.
 			if ( ! empty( $submitted_email ) ) {
 				$email_count = (int) $wpdb->get_var(
 					$wpdb->prepare(

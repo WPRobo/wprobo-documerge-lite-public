@@ -50,7 +50,7 @@ class WPRobo_DocuMerge_Forms_Page {
 	 * @return void
 	 */
 	public function wprobo_documerge_screen_options() {
-        // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Admin page routing read; cap-checked, sanitized below.
 		$action = isset( $_GET['action'] ) ? sanitize_key( $_GET['action'] ) : '';
 
 		// Only add screen options on the list view, not the builder.
@@ -157,7 +157,7 @@ class WPRobo_DocuMerge_Forms_Page {
 		}
 
 		// Determine if we should show the builder instead of the list.
-		$action = isset( $_GET['action'] ) ? sanitize_key( $_GET['action'] ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		$action = isset( $_GET['action'] ) ? sanitize_key( $_GET['action'] ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Admin page action router; cap-checked, sanitize_key applied.
 
 		if ( 'edit' === $action || 'new' === $action ) {
 			$this->wprobo_documerge_render_builder();
@@ -217,7 +217,7 @@ class WPRobo_DocuMerge_Forms_Page {
 		$form = null;
 
 		// Load existing form data when editing.
-		$form_id = isset( $_GET['id'] ) ? absint( $_GET['id'] ) : 0; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		$form_id = isset( $_GET['id'] ) ? absint( $_GET['id'] ) : 0; // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Admin page form-id read; cap-checked, sanitized via absint.
 
 		if ( $form_id > 0 ) {
 			$form_builder = new WPRobo_DocuMerge_Form_Builder();
@@ -571,7 +571,7 @@ class WPRobo_DocuMerge_Forms_Page {
 			// Return DOCX download if PDF fails.
 			$url = admin_url(
 				'admin-ajax.php?action=wprobo_documerge_serve_preview&file='
-				. urlencode( basename( $result ) )
+				. rawurlencode( basename( $result ) )
 				. '&nonce=' . wp_create_nonce( 'wprobo_documerge_preview' )
 			);
 			wp_send_json_success(
@@ -586,7 +586,7 @@ class WPRobo_DocuMerge_Forms_Page {
 		// Create a temporary download URL.
 		$url = admin_url(
 			'admin-ajax.php?action=wprobo_documerge_serve_preview&file='
-			. urlencode( basename( $pdf_path ) )
+			. rawurlencode( basename( $pdf_path ) )
 			. '&nonce=' . wp_create_nonce( 'wprobo_documerge_preview' )
 		);
 

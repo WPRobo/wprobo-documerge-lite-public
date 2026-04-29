@@ -124,9 +124,12 @@ class WPRobo_DocuMerge_Templates_Page {
 		}
 
 		// Sanitize the client-reported fields before any further use.
+		// tmp_name is a PHP-generated temp filesystem path (not user-controlled
+		// text); is_uploaded_file() below is the authoritative validator for it.
 		$file = array(
 			'name'     => isset( $_FILES['template_file']['name'] ) ? sanitize_file_name( wp_unslash( $_FILES['template_file']['name'] ) ) : '',
 			'type'     => isset( $_FILES['template_file']['type'] ) ? sanitize_mime_type( wp_unslash( $_FILES['template_file']['type'] ) ) : '',
+			// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Server-generated upload path; validated below via is_uploaded_file().
 			'tmp_name' => isset( $_FILES['template_file']['tmp_name'] ) ? $_FILES['template_file']['tmp_name'] : '',
 			'error'    => isset( $_FILES['template_file']['error'] ) ? (int) $_FILES['template_file']['error'] : UPLOAD_ERR_NO_FILE,
 			'size'     => isset( $_FILES['template_file']['size'] ) ? (int) $_FILES['template_file']['size'] : 0,
